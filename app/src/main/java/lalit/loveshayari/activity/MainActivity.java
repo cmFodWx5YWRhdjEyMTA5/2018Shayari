@@ -1,7 +1,9 @@
-package lalit.loveshayari;
+package lalit.loveshayari.activity;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+import lalit.loveshayari.R;
 
 public class MainActivity extends AppCompatActivity {
 
