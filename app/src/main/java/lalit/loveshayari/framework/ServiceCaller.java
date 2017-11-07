@@ -10,6 +10,9 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import lalit.loveshayari.database.DbHelper;
+import lalit.loveshayari.model.ContentData;
+import lalit.loveshayari.model.Result;
 import lalit.loveshayari.utilities.Contants;
 
 
@@ -24,14 +27,14 @@ public class ServiceCaller {
     }
 
     //call login data
-    public void callLoginService(String phone, final IAsyncWorkCompletedCallback workCompletedCallback) {
+    public void callLoginService(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
-        final String url = Contants.SERVICE_BASE_URL + Contants.Login;
+        final String url = Contants.SERVICE_BASE_URL + Contants.LoveShayariFetchData;
         JSONObject obj = new JSONObject();
         try {
-            obj.put("PhoneNumber", phone);
+           // obj.put("PhoneNumber", phone);
 
-        } catch (JSONException e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
         Log.d(Contants.LOG_TAG, "Payload*****" + obj);
@@ -39,7 +42,8 @@ public class ServiceCaller {
             @Override
             public void onDone(String doneWhatCode, String result, String error) {
                 if (result != null) {
-                    parseAndSaveLoginData(result, workCompletedCallback);
+                    workCompletedCallback.onDone(result, true);
+                    //parseAndSaveLoginData(result, workCompletedCallback);
                 } else {
                     workCompletedCallback.onDone("loginService done", false);
                 }
@@ -55,14 +59,16 @@ public class ServiceCaller {
             @Override
             protected Boolean doInBackground(Void... voids) {
                 Boolean flag = false;
-                //ContentData data = new Gson().fromJson(result, ContentData.class);
-//                if (data != null) {
-//                    if (data.getData() != null) {
-//                        DbHelper dbhelper = new DbHelper(context);
-//                        dbhelper.upsertUserData(data.getData());
-//                        flag = true;
-//                    }
-//                }
+                ContentData data = new Gson().fromJson(result, ContentData.class);
+                if (data != null) {
+                    if (data.getResult() != null) {
+                        DbHelper dbhelper = new DbHelper(context);
+                        for (Result result:data.getResult()) {
+                            dbhelper.insertUserData(result);
+                        }
+                        flag = true;
+                    }
+                }
                 return flag;
             }
 
