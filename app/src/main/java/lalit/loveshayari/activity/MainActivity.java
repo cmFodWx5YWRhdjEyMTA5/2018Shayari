@@ -15,6 +15,9 @@ import android.widget.Toast;
 import com.google.gson.Gson;
 
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Collections;
 import java.util.List;
 
 import lalit.loveshayari.R;
@@ -54,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                         if (data != null) {
                             if (data.getResult() != null) {
                                 Result[] results = data.getResult();
+                                Collections.reverse(Arrays.asList(results));
                                 ShayariAdapter shayariAdapter = new ShayariAdapter(MainActivity.this, results);
                                 recyclerView.setAdapter(shayariAdapter);
                                 shayariAdapter.notifyDataSetChanged();
