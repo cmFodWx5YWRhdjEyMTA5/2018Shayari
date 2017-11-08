@@ -222,14 +222,14 @@ public class Utility {
     //alert for error message
     public static void alertForErrorMessage(String errorMessage, Context mContext) {
         final AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
-        Typeface regular = Typeface.createFromAsset(mContext.getAssets(), "fonts/roboto.regular.ttf");
+        //Typeface regular = Typeface.createFromAsset(mContext.getAssets(), "fonts/roboto.regular.ttf");
         final AlertDialog alert = builder.create();
         // alert.getWindow().getAttributes().windowAnimations = R.style.alertAnimation;
         View view = alert.getLayoutInflater().inflate(R.layout.custom_error_alert, null);
         TextView title = (TextView) view.findViewById(R.id.title);
-        title.setTypeface(regular);
+        //title.setTypeface(regular);
         TextView ok = (TextView) view.findViewById(R.id.Ok);
-        ok.setTypeface(regular);
+        //ok.setTypeface(regular);
         title.setText(errorMessage);
         alert.setCustomTitle(view);
         alert.setCancelable(false);

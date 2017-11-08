@@ -62,7 +62,7 @@ public class LoveHindiActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Toast.makeText(this, "Please Connect To Internet ", Toast.LENGTH_SHORT).show();
+          Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again",this);
         }
     }
 }

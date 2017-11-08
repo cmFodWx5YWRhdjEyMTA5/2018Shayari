@@ -3,7 +3,7 @@
     android:id="@+id/alert_layout_titleBar"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/holo_blue_light"
+    android:background="@color/colorPrimary"
     android:orientation="vertical">
 
     <LinearLayout
@@ -17,13 +17,16 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="Do You Realy Want To Exit ?"
+            android:textColor="@android:color/white"
+            android:textSize="16dp"
             android:textStyle="bold" />
 
         <View
             android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/cardview_dark_background" />
+            android:layout_marginTop="10dp"
+            android:background="@android:color/white" />
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -36,9 +39,11 @@
                 android:id="@+id/Ok"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
+                android:layout_marginBottom="10dp"
                 android:gravity="center"
                 android:text="OK"
                 android:textAllCaps="true"
+                android:textColor="@android:color/white"
                 android:textSize="18dp" />
         </LinearLayout>
     </LinearLayout>
