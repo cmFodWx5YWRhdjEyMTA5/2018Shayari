@@ -1,44 +1,39 @@
-package lalit.loveshayari.activity;
+package lalit.loveshayari.hindi;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
-import android.widget.ListView;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 
 import lalit.loveshayari.R;
 import lalit.loveshayari.adapter.ShayariAdapter;
-import lalit.loveshayari.database.DbHelper;
 import lalit.loveshayari.framework.IAsyncWorkCompletedCallback;
 import lalit.loveshayari.framework.ServiceCaller;
 import lalit.loveshayari.model.ContentData;
 import lalit.loveshayari.model.Result;
-import lalit.loveshayari.utilities.Contants;
 import lalit.loveshayari.utilities.Utility;
 
 import static lalit.loveshayari.R.id.list;
 
-public class MainActivity extends AppCompatActivity {
+public class LoveHindiActivity extends AppCompatActivity {
     RecyclerView recyclerView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        requestWindowFeature(Window.FEATURE_ACTION_BAR);// Removes action bar
+        requestWindowFeature(Window.FEATURE_NO_TITLE);// Removes title bar
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
+                WindowManager.LayoutParams.FLAG_FULLSCREEN);
+        setContentView(R.layout.activity_love_hindi);
         recyclerView = (RecyclerView) findViewById(list);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -58,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                             if (data.getResult() != null) {
                                 Result[] results = data.getResult();
                                 Collections.reverse(Arrays.asList(results));
-                                ShayariAdapter shayariAdapter = new ShayariAdapter(MainActivity.this, results);
+                                ShayariAdapter shayariAdapter = new ShayariAdapter(LoveHindiActivity.this, results);
                                 recyclerView.setAdapter(shayariAdapter);
                                 shayariAdapter.notifyDataSetChanged();
                             }
@@ -66,11 +61,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 }
             });
-        }
-        else {
+        } else {
             Toast.makeText(this, "Please Connect To Internet ", Toast.LENGTH_SHORT).show();
         }
     }
 }
-
-

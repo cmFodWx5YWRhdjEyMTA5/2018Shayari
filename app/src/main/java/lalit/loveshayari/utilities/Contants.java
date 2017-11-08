@@ -30,5 +30,5 @@ public class Contants {
 
     public static final String OFFLINE_MESSAGE = "Oops! You are Offline. Please check your Internet Connection.";
 
-    public static final String LoveShayariFetchData = "LoveShayariFetchData.php";
+    public static final String HindiLoveShayariFetchData = "HindiLoveShayariFetchData.php";
 }

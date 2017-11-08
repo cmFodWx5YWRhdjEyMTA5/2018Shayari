@@ -29,7 +29,7 @@ public class ServiceCaller {
     //call login data
     public void callLoginService(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
-        final String url = Contants.SERVICE_BASE_URL + Contants.LoveShayariFetchData;
+        final String url = Contants.SERVICE_BASE_URL + Contants.HindiLoveShayariFetchData;
         JSONObject obj = new JSONObject();
         try {
            // obj.put("PhoneNumber", phone);
@@ -49,38 +49,5 @@ public class ServiceCaller {
                 }
             }
         });
-    }
-
-    //parse and save login data
-    public void parseAndSaveLoginData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
-        new AsyncTask<Void, Void, Boolean>() {
-
-
-            @Override
-            protected Boolean doInBackground(Void... voids) {
-                Boolean flag = false;
-                ContentData data = new Gson().fromJson(result, ContentData.class);
-                if (data != null) {
-                    if (data.getResult() != null) {
-                        DbHelper dbhelper = new DbHelper(context);
-                        for (Result result:data.getResult()) {
-                            dbhelper.insertUserData(result);
-                        }
-                        flag = true;
-                    }
-                }
-                return flag;
-            }
-
-            @Override
-            protected void onPostExecute(Boolean flag) {
-                super.onPostExecute(flag);
-                if (flag) {
-                    workCompletedCallback.onDone("LoginService done", true);
-                } else {
-                    workCompletedCallback.onDone("LoginService done", false);
-                }
-            }
-        }.execute();
     }
 }
