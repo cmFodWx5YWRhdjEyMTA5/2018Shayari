@@ -6,7 +6,6 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.Window;
 import android.view.WindowManager;
-import android.widget.Toast;
 
 import com.google.gson.Gson;
 
@@ -24,9 +23,8 @@ import lalit.loveshayari.utilities.Utility;
 
 import static lalit.loveshayari.R.id.list;
 
-public class LoveHindiActivity extends AppCompatActivity {
+public class HindiFunnyActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +32,7 @@ public class LoveHindiActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);// Removes title bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_love_hindi);
+        setContentView(R.layout.activity_hindi_funny);
         recyclerView = (RecyclerView) findViewById(list);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -56,13 +54,13 @@ public class LoveHindiActivity extends AppCompatActivity {
                             if (data.getResult() != null) {
                                 Result[] results = data.getResult();
                                 Collections.reverse(Arrays.asList(results));
-                                ShayariAdapter shayariAdapter = new ShayariAdapter(LoveHindiActivity.this, results);
+                                ShayariAdapter shayariAdapter = new ShayariAdapter(HindiFunnyActivity.this, results);
                                 recyclerView.setAdapter(shayariAdapter);
                                 shayariAdapter.notifyDataSetChanged();
                             }
                         }
                     } else {
-                        Utility.alertForErrorMessage("Some Problem Try Again", LoveHindiActivity.this);
+                        Utility.alertForErrorMessage("Some Problem Try Again", HindiFunnyActivity.this);
                     }
 
                     if (ballTriangleDialog.isShowing()) {

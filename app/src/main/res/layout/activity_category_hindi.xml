@@ -24,7 +24,7 @@
             android:id="@+id/love"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
             android:text="लव शायरी"
             android:textColor="@android:color/black" />
@@ -33,9 +33,33 @@
             android:id="@+id/sad"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="10dp"
+            android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
             android:text="उदास शायरी"
+            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/romantic"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:text="शायरी"
+            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/funny"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:text="शायरी"
+            android:textColor="@android:color/black" />
+        <Button
+            android:id="@+id/yaad"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/button_background"
+            android:text="शायरी"
             android:textColor="@android:color/black" />
     </LinearLayout>
 </LinearLayout>

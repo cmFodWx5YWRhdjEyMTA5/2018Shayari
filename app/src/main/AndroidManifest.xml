@@ -54,10 +54,25 @@
         <activity
             android:name=".activity.CategoryEngliahActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity android:name=".hindi.LoveHindiActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"/>
-        <activity android:name=".english.LoveEnglishActivity"
+        <activity
+            android:name=".hindi.HindiLoveActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".english.LoveEnglishActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".hindi.HindiSadActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".hindi.HindiRomanticActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".hindi.HindiFunnyActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
+        <activity
+            android:name=".hindi.HindiYaadActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar">
+
         </activity>
     </application>
 
