@@ -15,6 +15,7 @@ import java.util.Collections;
 
 import lalit.loveshayari.R;
 import lalit.loveshayari.adapter.ShayariAdapter;
+import lalit.loveshayari.balltrianglecustomprogress.BallTriangleDialog;
 import lalit.loveshayari.framework.IAsyncWorkCompletedCallback;
 import lalit.loveshayari.framework.ServiceCaller;
 import lalit.loveshayari.model.ContentData;
@@ -43,6 +44,8 @@ public class LoveHindiActivity extends AppCompatActivity {
 
     private void init() {
         if (Utility.isOnline(this)) {
+            final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            ballTriangleDialog.show();
             ServiceCaller serviceCaller = new ServiceCaller(this);
             serviceCaller.callLoginService(new IAsyncWorkCompletedCallback() {
                 @Override
@@ -58,11 +61,19 @@ public class LoveHindiActivity extends AppCompatActivity {
                                 shayariAdapter.notifyDataSetChanged();
                             }
                         }
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", LoveHindiActivity.this);
                     }
+
+                    if (ballTriangleDialog.isShowing()) {
+                        ballTriangleDialog.dismiss();
+                    }
+
+
                 }
             });
         } else {
-          Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again",this);
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
         }
     }
 }
