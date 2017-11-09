@@ -1,6 +1,9 @@
 package lalit.loveshayari.activity;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Rect;
 import android.os.AsyncTask;
 import android.support.v7.app.AppCompatActivity;
@@ -14,6 +17,7 @@ import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
@@ -42,7 +46,7 @@ import static lalit.loveshayari.R.id.list;
 
 public class UploadShowActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    String text;
+    String text, Uname;
     EditText edt_upload;
     JSONParser jsonParser;
     String url = Contants.SERVICE_BASE_URL + Contants.UserShayariSetData;
@@ -56,16 +60,17 @@ public class UploadShowActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_upload_show);
+        Intent intent = getIntent();
+        Uname = intent.getStringExtra("name");
         edt_upload = (EditText) findViewById(R.id.edt_upload);
         Button save = (Button) findViewById(R.id.btn_upload);
         jsonParser = new JSONParser();
         save.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
                 if (Utility.isOnline(UploadShowActivity.this)) {
-                    new product().execute();
                     text = edt_upload.getText().toString();
+                    new product().execute();
                 } else {
                     Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", UploadShowActivity.this);
                 }
@@ -82,8 +87,9 @@ public class UploadShowActivity extends AppCompatActivity {
     public class product extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
+            String TextWithName = text + "By--" + Uname;
             List<NameValuePair> parm = new ArrayList<NameValuePair>();
-            parm.add(new BasicNameValuePair("textdata", text));
+            parm.add(new BasicNameValuePair("textdata", TextWithName));
             JSONObject obj = jsonParser.makeHttpRequest(url, "POST", parm);
 
             return null;
@@ -93,6 +99,8 @@ public class UploadShowActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
             ballTriangleDialog.dismiss();
+            edt_upload.setText("");
+            init();
             Toast.makeText(UploadShowActivity.this, "Save Data Success. ", Toast.LENGTH_SHORT).show();
 
         }
@@ -140,6 +148,7 @@ public class UploadShowActivity extends AppCompatActivity {
             Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
         }
     }
+
     //for hid keyboard when tab outside edittext box
     @Override
     public boolean dispatchTouchEvent(MotionEvent event) {
