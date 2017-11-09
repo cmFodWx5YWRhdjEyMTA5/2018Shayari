@@ -43,7 +43,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:text="शायरी"
+            android:text="रोमांस शायरी"
             android:textColor="@android:color/black" />
         <Button
             android:id="@+id/funny"
@@ -51,7 +51,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:text="शायरी"
+            android:text="मजेदार शायरी"
             android:textColor="@android:color/black" />
         <Button
             android:id="@+id/yaad"
@@ -59,7 +59,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/button_background"
-            android:text="शायरी"
+            android:text="याद शायरी"
             android:textColor="@android:color/black" />
     </LinearLayout>
 </LinearLayout>

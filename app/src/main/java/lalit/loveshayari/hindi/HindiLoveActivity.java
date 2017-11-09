@@ -9,6 +9,7 @@ import android.view.WindowManager;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -25,7 +26,6 @@ import static lalit.loveshayari.R.id.list;
 
 public class HindiLoveActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,7 +46,7 @@ public class HindiLoveActivity extends AppCompatActivity {
             final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
             ballTriangleDialog.show();
             ServiceCaller serviceCaller = new ServiceCaller(this);
-            serviceCaller.callLoginService(new IAsyncWorkCompletedCallback() {
+            serviceCaller.callhindiLoveshayari(new IAsyncWorkCompletedCallback() {
                 @Override
                 public void onDone(String workName, boolean isComplete) {
                     if (isComplete) {

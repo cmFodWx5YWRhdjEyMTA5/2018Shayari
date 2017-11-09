@@ -45,7 +45,7 @@ public class HindiYaadActivity extends AppCompatActivity {
             final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
             ballTriangleDialog.show();
             ServiceCaller serviceCaller = new ServiceCaller(this);
-            serviceCaller.callLoginService(new IAsyncWorkCompletedCallback() {
+            serviceCaller.callhindiYaadshayari(new IAsyncWorkCompletedCallback() {
                 @Override
                 public void onDone(String workName, boolean isComplete) {
                     if (isComplete) {

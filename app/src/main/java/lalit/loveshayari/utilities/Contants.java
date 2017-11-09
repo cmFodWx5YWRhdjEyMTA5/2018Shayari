@@ -31,4 +31,13 @@ public class Contants {
     public static final String OFFLINE_MESSAGE = "Oops! You are Offline. Please check your Internet Connection.";
 
     public static final String HindiLoveShayariFetchData = "HindiLoveShayariFetchData.php";
+    public static final String HindiRomanticShayariFetchData = "HindiRomanticShayariFetchData.php";
+    public static final String HindiSadShayariFetchData = "HindiSadShayariFetchData.php";
+    public static final String HindiFunnyShayariFetchData = "HindiFunnyShayariFetchData.php";
+    public static final String HindiYaadShayariFetchData = "HindiYaadShayariFetchData.php";
+    public static final String EnglishLoveShayariFetchData = "EnglishLoveShayariFetchData.php";
+    public static final String EnglishSadShayariFetchData = "EnglishSadShayariFetchData.php";
+    public static final String EnglishRomanticShayariFetchData = "EnglishRomanticShayariFetchData.php";
+    public static final String EnglishFunnyShayariFetchData = "EnglishFunnyShayariFetchData.php";
+    public static final String EnglishYaadShayariFetchData = "EnglishYaadShayariFetchData.php";
 }

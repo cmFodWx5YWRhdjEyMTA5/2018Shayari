@@ -1,4 +1,4 @@
-package lalit.loveshayari.hindi;
+package lalit.loveshayari.english;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -23,8 +23,9 @@ import lalit.loveshayari.utilities.Utility;
 
 import static lalit.loveshayari.R.id.list;
 
-public class HindiRomanticActivity extends AppCompatActivity {
+public class EnglishLoveActivity extends AppCompatActivity {
     RecyclerView recyclerView;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,7 +33,7 @@ public class HindiRomanticActivity extends AppCompatActivity {
         requestWindowFeature(Window.FEATURE_NO_TITLE);// Removes title bar
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
-        setContentView(R.layout.activity_hindi_romantic);
+        setContentView(R.layout.activity_english_love);
         recyclerView = (RecyclerView) findViewById(list);
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -45,7 +46,7 @@ public class HindiRomanticActivity extends AppCompatActivity {
             final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
             ballTriangleDialog.show();
             ServiceCaller serviceCaller = new ServiceCaller(this);
-            serviceCaller.callhindiRomanticshayari(new IAsyncWorkCompletedCallback() {
+            serviceCaller.callEnglishLoveshayari(new IAsyncWorkCompletedCallback() {
                 @Override
                 public void onDone(String workName, boolean isComplete) {
                     if (isComplete) {
@@ -54,13 +55,13 @@ public class HindiRomanticActivity extends AppCompatActivity {
                             if (data.getResult() != null) {
                                 Result[] results = data.getResult();
                                 Collections.reverse(Arrays.asList(results));
-                                ShayariAdapter shayariAdapter = new ShayariAdapter(HindiRomanticActivity.this, results);
+                                ShayariAdapter shayariAdapter = new ShayariAdapter(EnglishLoveActivity.this, results);
                                 recyclerView.setAdapter(shayariAdapter);
                                 shayariAdapter.notifyDataSetChanged();
                             }
                         }
                     } else {
-                        Utility.alertForErrorMessage("Some Problem Try Again", HindiRomanticActivity.this);
+                        Utility.alertForErrorMessage("Some Problem Try Again", EnglishLoveActivity.this);
                     }
 
                     if (ballTriangleDialog.isShowing()) {
