@@ -65,9 +65,11 @@ public class LanguageActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 String name = text.getText().toString();
-                Intent intent = new Intent(LanguageActivity.this, UploadShowActivity.class);
-                intent.putExtra("name", name);
-                startActivity(intent);
+                if (!name.isEmpty()) {
+                    Intent intent = new Intent(LanguageActivity.this, UploadShowActivity.class);
+                    intent.putExtra("name", name);
+                    startActivity(intent);
+                }
             }
         });
 

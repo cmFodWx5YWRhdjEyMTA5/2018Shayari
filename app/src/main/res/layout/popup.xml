@@ -1,12 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
-    android:layout_width="380dp"
-    android:layout_marginTop="150dp"
-    android:background="#d1f7a8"
-
+    android:layout_width="wrap_content"
+    android:background="@drawable/background"
     android:id="@+id/ff"
+    android:layout_gravity="center"
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="150dp">
+    android:layout_height="wrap_content">
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -23,6 +22,7 @@
         android:inputType="textAutoComplete|textMultiLine"
         android:maxLines="11"
         android:ems="11"
+        android:textColor="@android:color/black"
         android:background="#f4e3e3"
         android:hint="Enter Your Name"/>
     <LinearLayout

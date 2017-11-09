@@ -84,7 +84,9 @@
         <activity
             android:name=".english.EnglishYaadActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity android:name=".activity.UploadShowActivity"></activity>
+        <activity
+            android:name=".activity.UploadShowActivity"
+            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
     </application>
 
 </manifest>
