@@ -49,14 +49,28 @@
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_weight=".1"
-            android:gravity="end|bottom">
+            android:gravity="bottom"
+            android:orientation="horizontal">
 
             <TextView
-                android:layout_width="wrap_content"
+                android:id="@+id/upload"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|left"
+                android:layout_margin="5dp"
+                android:layout_weight=".65"
+                android:text="Upload/Show Shayari Here"
+                android:textColor="@android:color/holo_blue_dark"
+                android:textSize="18dp" />
+
+            <TextView
+                android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom|end"
-                android:text="By:-Lalit Singh"
                 android:layout_margin="5dp"
+                android:layout_weight=".35"
+                android:gravity="end"
+                android:text="By:-Lalit Singh"
                 android:textColor="@android:color/holo_red_dark" />
 
         </LinearLayout>

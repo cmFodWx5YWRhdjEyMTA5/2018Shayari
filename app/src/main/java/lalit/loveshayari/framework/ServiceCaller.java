@@ -268,4 +268,27 @@ public class ServiceCaller {
             }
         });
     }
+    public void callShowUsershayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.UserShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    workCompletedCallback.onDone(result, true);
+                    //parseAndSaveLoginData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("callShowUsershayari done", false);
+                }
+            }
+        });
+    }
 }

@@ -40,4 +40,6 @@ public class Contants {
     public static final String EnglishRomanticShayariFetchData = "EnglishRomanticShayariFetchData.php";
     public static final String EnglishFunnyShayariFetchData = "EnglishFunnyShayariFetchData.php";
     public static final String EnglishYaadShayariFetchData = "EnglishYaadShayariFetchData.php";
+    public static final String UserShayariFetchData = "UserShayariFetchData.php";
+    public static final String UserShayariSetData = "UserShayariSetData.php";
 }

@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.TextView;
 
 import lalit.loveshayari.R;
 
@@ -21,6 +22,7 @@ public class LanguageActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_language);
         Button hindi = (Button) findViewById(R.id.hindi);
+        TextView upload= (TextView) findViewById(R.id.upload);
         Button engliah = (Button) findViewById(R.id.english);
         hindi.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -32,6 +34,12 @@ public class LanguageActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(LanguageActivity.this, CategoryEngliahActivity.class));
+            }
+        });
+        upload.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(LanguageActivity.this, UploadShowActivity.class));
             }
         });
     }
