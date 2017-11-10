@@ -1,54 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    android:layout_width="wrap_content"
-    android:background="@drawable/background"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/ff"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     android:layout_gravity="center"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_height="wrap_content">
+    android:background="@drawable/background">
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="WelCome"
-        android:textSize="20dp"
         android:textAlignment="center"
-        android:textColor="#fc0905"/>
+        android:textColor="#fc0905"
+        android:textSize="20dp" />
+
     <EditText
+        android:id="@+id/msg"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/msg"
         android:layout_marginTop="25dp"
-        android:textSize="20dp"
+        android:ems="11"
+        android:hint="Enter Your Name"
         android:inputType="textAutoComplete|textMultiLine"
         android:maxLines="11"
-        android:ems="11"
         android:textColor="@android:color/black"
-        android:background="#f4e3e3"
-        android:hint="Enter Your Name"/>
+        android:textSize="20dp" />
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
         android:layout_marginTop="92dp"
-        >
+        android:orientation="horizontal">
+
         <Button
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
             android:id="@+id/send"
-            android:text="Go"
-            android:textStyle="italic"
-            android:textColor="@color/colorAccent"
-            android:textSize="20dp"
-            android:layout_weight="1"/>
-        <Button
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/cancle"
-            android:textStyle="italic"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
+            android:text="Go"
             android:textColor="@color/colorAccent"
             android:textSize="20dp"
+            android:textStyle="italic" />
+
+        <Button
+            android:id="@+id/cancle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="@android:color/transparent"
             android:text="cancle"
-            android:layout_weight="1"/>
+            android:textColor="@color/colorAccent"
+            android:textSize="20dp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 </FrameLayout>

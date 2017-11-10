@@ -46,10 +46,10 @@ import static lalit.loveshayari.R.id.list;
 
 public class UploadShowActivity extends AppCompatActivity {
     RecyclerView recyclerView;
-    String text, Uname;
+    String text, Uname, TextWithName;
     EditText edt_upload;
     JSONParser jsonParser;
-    String url = Contants.SERVICE_BASE_URL + Contants.UserShayariSetData;
+    String url;
     BallTriangleDialog ballTriangleDialog;
 
     @Override
@@ -62,6 +62,7 @@ public class UploadShowActivity extends AppCompatActivity {
         setContentView(R.layout.activity_upload_show);
         Intent intent = getIntent();
         Uname = intent.getStringExtra("name");
+        url = "http://lalirbmi.esy.es/UserShayariSetData.php";
         edt_upload = (EditText) findViewById(R.id.edt_upload);
         Button save = (Button) findViewById(R.id.btn_upload);
         jsonParser = new JSONParser();
@@ -69,8 +70,7 @@ public class UploadShowActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (Utility.isOnline(UploadShowActivity.this)) {
-                    text = edt_upload.getText().toString();
-                    new product().execute();
+                    sendData();
                 } else {
                     Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", UploadShowActivity.this);
                 }
@@ -80,14 +80,18 @@ public class UploadShowActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
         recyclerView.setLayoutManager(layoutManager);
-
         init();
+    }
+
+    private void sendData() {
+        text = edt_upload.getText().toString();
+        TextWithName = text + "By--" + Uname;
+        new product().execute();
     }
 
     public class product extends AsyncTask<String, String, String> {
         @Override
         protected String doInBackground(String... strings) {
-            String TextWithName = text + "By--" + Uname;
             List<NameValuePair> parm = new ArrayList<NameValuePair>();
             parm.add(new BasicNameValuePair("textdata", TextWithName));
             JSONObject obj = jsonParser.makeHttpRequest(url, "POST", parm);

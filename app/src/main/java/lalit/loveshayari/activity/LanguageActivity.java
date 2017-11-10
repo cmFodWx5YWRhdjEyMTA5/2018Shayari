@@ -68,6 +68,7 @@ public class LanguageActivity extends AppCompatActivity {
                 if (!name.isEmpty()) {
                     Intent intent = new Intent(LanguageActivity.this, UploadShowActivity.class);
                     intent.putExtra("name", name);
+                    dialog.dismiss();
                     startActivity(intent);
                 }
             }
