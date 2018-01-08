@@ -4,14 +4,14 @@
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/english_background"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    tools:context="lalit.loveshayari.english.EnglishRomanticActivity">
+    tools:context="lalit.loveshayari.activity.DataViewActivity">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
-        <android.support.v7.widget.RecyclerView
+        <ListView
             android:id="@+id/list"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

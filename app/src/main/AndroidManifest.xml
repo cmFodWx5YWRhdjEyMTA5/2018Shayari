@@ -55,22 +55,10 @@
             android:name=".activity.CategoryEngliahActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
-            android:name=".hindi.HindiLoveActivity"
+            android:name=".activity.DataViewActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".english.EnglishLoveActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".hindi.HindiSadActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".hindi.HindiRomanticActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".hindi.HindiFunnyActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
-        <activity
-            android:name=".hindi.HindiYaadActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".english.EnglishSadActivity"
@@ -83,20 +71,17 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".english.EnglishYaadActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-        <activity
-            android:name=".activity.UploadShowActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
-
+            android:theme="@style/Theme.AppCompat.NoActionBar" />
 
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <!--Include the AdActivity configChanges and theme. -->
+        <!-- Include the AdActivity configChanges and theme. -->
         <activity
             android:name="com.google.android.gms.ads.AdActivity"
             android:configChanges="keyboard|keyboardHidden|orientation|screenLayout|uiMode|screenSize|smallestScreenSize"
             android:theme="@android:style/Theme.Translucent" />
+        <activity android:name=".activity.ActionViewActivity"></activity>
     </application>
 
 </manifest>

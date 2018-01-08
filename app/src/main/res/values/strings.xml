@@ -7,4 +7,9 @@
     <!-- AdMob ad unit IDs -->
     <string name="banner_home_footer">ca-app-pub-4895638418476524/9503799287</string>
     <string name="interstitial_full_screen">ca-app-pub-4895638418476524~6942103178</string>
+    <!--//for force updates-->
+    <string name="Update_heading">Update Available</string>
+    <string name="update2">An update version of the app is now available.</string>
+    <string name="remind_me_later">Remind me Later</string>
+    <string name="update_text">Update Now</string>
 </resources>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".9"
+        android:orientation="vertical">
+
+        <!--<TextView-->
+            <!--android:id="@+id/textdata"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"-->
+            <!--android:gravity="center"-->
+            <!--android:textColor="@color/black"-->
+            <!--android:textSize="20dp" />-->
+        <HorizontalScrollView
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent" >
+
+            <ListView
+                android:id="@+id/list"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent">
+            </ListView>
+        </HorizontalScrollView>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight=".1"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".25"
+          />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight=".25"
+            android:text="Share"
+            android:layout_marginRight="5dp"
+            android:background="@drawable/button_background"
+            android:onClick="shareClick"
+            android:textSize="12dp" />
+
+        <Button
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight=".25"
+            android:text="Copy"
+            android:layout_marginLeft="5dp"
+            android:background="@drawable/button_background"
+            android:onClick="copyClick"
+            android:textSize="12dp" />
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight=".25"
+            />
+    </LinearLayout>
+</LinearLayout>
+</LinearLayout>

@@ -9,19 +9,13 @@ import android.view.WindowManager;
 import android.widget.Button;
 
 import lalit.loveshayari.R;
-import lalit.loveshayari.english.EnglishFunnyActivity;
-import lalit.loveshayari.english.EnglishLoveActivity;
-import lalit.loveshayari.english.EnglishRomanticActivity;
-import lalit.loveshayari.english.EnglishSadActivity;
-import lalit.loveshayari.english.EnglishYaadActivity;
-import lalit.loveshayari.hindi.HindiFunnyActivity;
-import lalit.loveshayari.hindi.HindiLoveActivity;
-import lalit.loveshayari.hindi.HindiRomanticActivity;
-import lalit.loveshayari.hindi.HindiSadActivity;
-import lalit.loveshayari.hindi.HindiYaadActivity;
+import lalit.loveshayari.framework.IAsyncWorkCompletedCallback;
+import lalit.loveshayari.framework.ServiceCaller;
+import lalit.loveshayari.utilities.Utility;
 
 public class CategoryEngliahActivity extends AppCompatActivity implements View.OnClickListener {
     Button love, sad, romantic, funny, yaad;
+    String loveData, sadData, romanticData, funnyData, yaadData;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,25 +35,166 @@ public class CategoryEngliahActivity extends AppCompatActivity implements View.O
         romantic.setOnClickListener(this);
         funny.setOnClickListener(this);
         yaad.setOnClickListener(this);
+        EnglishLove();
+        EnglishSad();
+        EnglishRomantic();
+        EnglishFunny();
+        EnglishYaad();
+    }
+
+    private void EnglishLove() {
+        if (Utility.isOnline(this)) {
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishLoveshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                        loveData = workName;
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", CategoryEngliahActivity.this);
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+        } else {
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+        }
+    }
+
+    private void EnglishSad() {
+        if (Utility.isOnline(this)) {
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishSadshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                        sadData = workName;
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", CategoryEngliahActivity.this);
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+        } else {
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+        }
+
+    }
+
+    private void EnglishRomantic() {
+        if (Utility.isOnline(this)) {
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishRomanticshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                        romanticData = workName;
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", CategoryEngliahActivity.this);
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+        } else {
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+        }
+    }
+
+    private void EnglishFunny() {
+        if (Utility.isOnline(this)) {
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishFunnyshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                        funnyData = workName;
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", CategoryEngliahActivity.this);
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+        } else {
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+        }
+    }
+
+    private void EnglishYaad() {
+        if (Utility.isOnline(this)) {
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishYaadshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                        yaadData = workName;
+                    } else {
+                        Utility.alertForErrorMessage("Some Problem Try Again", CategoryEngliahActivity.this);
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+        } else {
+            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+        }
     }
 
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.love:
-                startActivity(new Intent(CategoryEngliahActivity.this, EnglishLoveActivity.class));
+                if (loveData != null) {
+                    Intent intent = new Intent(CategoryEngliahActivity.this, DataViewActivity.class);
+                    intent.putExtra("data", loveData);
+                    startActivity(intent);
+                }
                 break;
             case R.id.sad:
-                startActivity(new Intent(CategoryEngliahActivity.this, EnglishSadActivity.class));
+                if (sadData != null) {
+                    Intent intent = new Intent(CategoryEngliahActivity.this, DataViewActivity.class);
+                    intent.putExtra("data", sadData);
+                    startActivity(intent);
+                }
                 break;
             case R.id.romantic:
-                startActivity(new Intent(CategoryEngliahActivity.this, EnglishRomanticActivity.class));
+                if (romanticData != null) {
+                    Intent intent = new Intent(CategoryEngliahActivity.this, DataViewActivity.class);
+                    intent.putExtra("data", romanticData);
+                    startActivity(intent);
+                }
                 break;
             case R.id.funny:
-                startActivity(new Intent(CategoryEngliahActivity.this, EnglishFunnyActivity.class));
+                if (funnyData != null) {
+                    Intent intent = new Intent(CategoryEngliahActivity.this, DataViewActivity.class);
+                    intent.putExtra("data", funnyData);
+                    startActivity(intent);
+                }
                 break;
             case R.id.yaad:
-                startActivity(new Intent(CategoryEngliahActivity.this, EnglishYaadActivity.class));
+                if (yaadData != null) {
+                    Intent intent = new Intent(CategoryEngliahActivity.this, DataViewActivity.class);
+                    intent.putExtra("data", yaadData);
+                    startActivity(intent);
+                }
                 break;
         }
     }
