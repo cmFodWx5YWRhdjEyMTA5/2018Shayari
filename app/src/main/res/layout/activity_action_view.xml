@@ -14,23 +14,23 @@
         android:layout_weight=".9"
         android:orientation="vertical">
 
-        <!--<TextView-->
-            <!--android:id="@+id/textdata"-->
-            <!--android:layout_width="match_parent"-->
-            <!--android:layout_height="match_parent"-->
-            <!--android:gravity="center"-->
-            <!--android:textColor="@color/black"-->
-            <!--android:textSize="20dp" />-->
-        <HorizontalScrollView
-            android:layout_width="fill_parent"
-            android:layout_height="fill_parent" >
+        <TextView
+            android:id="@+id/textdata"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
+        <!--<HorizontalScrollView-->
+            <!--android:layout_width="fill_parent"-->
+            <!--android:layout_height="fill_parent" >-->
 
-            <ListView
-                android:id="@+id/list"
-                android:layout_width="fill_parent"
-                android:layout_height="fill_parent">
-            </ListView>
-        </HorizontalScrollView>
+            <!--<ListView-->
+                <!--android:id="@+id/list"-->
+                <!--android:layout_width="fill_parent"-->
+                <!--android:layout_height="fill_parent">-->
+            <!--</ListView>-->
+        <!--</HorizontalScrollView>-->
     </LinearLayout>
 
     <LinearLayout

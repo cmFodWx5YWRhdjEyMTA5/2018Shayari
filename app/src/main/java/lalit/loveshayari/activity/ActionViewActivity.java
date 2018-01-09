@@ -23,11 +23,11 @@ import lalit.loveshayari.model.ContentData;
 import lalit.loveshayari.model.Result;
 
 public class ActionViewActivity extends AppCompatActivity {
-    //TextView textdata;
+    TextView textdata;
     int current = 0;
     String data, allData;
-    int postion;
-    ListView listView;
+    //  int postion;
+    //  ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,22 +39,21 @@ public class ActionViewActivity extends AppCompatActivity {
     private void init() {
         Intent intent = getIntent();
         data = intent.getStringExtra("textdata");
-        allData = intent.getStringExtra("data");
-        postion = intent.getIntExtra("pos", 0);
-       // textdata = (TextView) findViewById(R.id.textdata);
-        listView = (ListView) findViewById(R.id.list);
-        //textdata.setText(data);
-        if (allData != null) {
-            ContentData data = new Gson().fromJson(allData, ContentData.class);
-            if (data != null) {
-                if (data.getResult() != null) {
-                    final Result[] results = data.getResult();
-                    ShayariAdapter shayariAdapter = new ShayariAdapter(ActionViewActivity.this, results);
-                    listView.setAdapter(shayariAdapter);
-                    shayariAdapter.notifyDataSetChanged();
-                }
-            }
-        }
+        // postion = intent.getIntExtra("pos", 0);
+        textdata = (TextView) findViewById(R.id.textdata);
+        // listView = (ListView) findViewById(R.id.list);
+        textdata.setText(data);
+//        if (allData != null) {
+//            ContentData data = new Gson().fromJson(allData, ContentData.class);
+//            if (data != null) {
+//                if (data.getResult() != null) {
+//                    final Result[] results = data.getResult();
+//                    ShayariAdapter shayariAdapter = new ShayariAdapter(ActionViewActivity.this, results);
+//                    listView.setAdapter(shayariAdapter);
+//                    shayariAdapter.notifyDataSetChanged();
+//                }
+//            }
+//        }
     }
 
     public void shareClick(View view) {

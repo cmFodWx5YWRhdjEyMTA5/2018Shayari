@@ -25,10 +25,10 @@ import lalit.loveshayari.utilities.Contants;
  */
 
 public class ShayariAdapter extends BaseAdapter {
-    private Result [] DataList;
+    private List<Result> DataList;
     private LayoutInflater mInflater;
     public Context mContext;
-    public ShayariAdapter(Context mContext, Result [] DataList) {
+    public ShayariAdapter(Context mContext,List<Result> DataList) {
         mInflater = LayoutInflater.from(mContext);
         this.mContext = mContext;
         this.DataList = DataList;
@@ -37,7 +37,7 @@ public class ShayariAdapter extends BaseAdapter {
     @Override
     public int getCount() {
 
-        return DataList.length;
+        return DataList.size();
     }
 
 
@@ -62,7 +62,7 @@ public class ShayariAdapter extends BaseAdapter {
             {
                 holder.data = (TextView) convertview.findViewById(R.id.data);
                 holder.sno = (TextView) convertview.findViewById(R.id.sno);
-                holder.data.setText(DataList[i].getTextdata());
+                holder.data.setText(DataList.get(i).getTextdata());
                 holder.sno.setText(String.valueOf(i));
                     convertview.setTag(holder);
 
@@ -72,10 +72,8 @@ public class ShayariAdapter extends BaseAdapter {
         }
         return convertview;
     }
-
     public static class ViewHolder {
         TextView data,sno;
-
     }
 }
 
