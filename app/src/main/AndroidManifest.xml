@@ -50,10 +50,10 @@
             android:theme="@style/Theme.AppCompat.NoActionBar" />
         <activity
             android:name=".activity.CategoryHindiActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            />
         <activity
             android:name=".activity.CategoryEngliahActivity"
-            android:theme="@style/Theme.AppCompat.NoActionBar" />
+            />
         <activity
             android:name=".activity.DataViewActivity"
             android:theme="@style/Theme.AppCompat.NoActionBar" />

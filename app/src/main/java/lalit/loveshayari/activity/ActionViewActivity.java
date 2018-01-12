@@ -23,8 +23,8 @@ import lalit.loveshayari.model.ContentData;
 import lalit.loveshayari.model.Result;
 
 public class ActionViewActivity extends AppCompatActivity {
-    TextView textdata;
-    int current = 0;
+    TextView textdata,tv_countSize;
+    int current = 0,postion,totalSize;
     String data, allData;
     //  int postion;
     //  ListView listView;
@@ -39,21 +39,12 @@ public class ActionViewActivity extends AppCompatActivity {
     private void init() {
         Intent intent = getIntent();
         data = intent.getStringExtra("textdata");
-        // postion = intent.getIntExtra("pos", 0);
+        postion = intent.getIntExtra("postion",0);
+        totalSize = intent.getIntExtra("totalSize",0);
         textdata = (TextView) findViewById(R.id.textdata);
-        // listView = (ListView) findViewById(R.id.list);
+        tv_countSize = (TextView) findViewById(R.id.tv_countSize);
         textdata.setText(data);
-//        if (allData != null) {
-//            ContentData data = new Gson().fromJson(allData, ContentData.class);
-//            if (data != null) {
-//                if (data.getResult() != null) {
-//                    final Result[] results = data.getResult();
-//                    ShayariAdapter shayariAdapter = new ShayariAdapter(ActionViewActivity.this, results);
-//                    listView.setAdapter(shayariAdapter);
-//                    shayariAdapter.notifyDataSetChanged();
-//                }
-//            }
-//        }
+        tv_countSize.setText(String.valueOf(postion)+"/"+String.valueOf(totalSize));
     }
 
     public void shareClick(View view) {
@@ -87,20 +78,6 @@ public class ActionViewActivity extends AppCompatActivity {
         }
 
         public Object instantiateItem(View paramView, int paramInt) {
-//            TextView localTextView = new TextView(HindiShyariDisplay.this);
-//            localTextView.setTextColor(-16777216);
-//            localTextView.setTextSize(20.0F);
-//            HindiShyariDisplay.this.str123 = localTextView.getText().toString();
-//            HindiShyariDisplay.this.resource = HindiShyariDisplay.this.pos;
-//            Log.v("pos11", HindiShyariDisplay.this.pos);
-//            Log.v("shayri", HindiShyariDisplay.this.str_shayari);
-//            HindiShyariDisplay.this.str123 = localTextView.getText().toString();
-//            localTextView.setText(HindiShyariDisplay.this.urls[paramInt]);
-//            HindiShyariDisplay.this.str123 = localTextView.getText().toString();
-//            HindiShyariDisplay.this.current = 0;
-//            ((ViewPager)paramView).addView(localTextView, 0);
-//            localTextView.getText().toString();
-//            localTextView.setText(HindiShyariDisplay.this.urls[paramInt]);
             return paramView;
         }
 

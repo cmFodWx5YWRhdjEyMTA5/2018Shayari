@@ -1,79 +1,110 @@
 package lalit.loveshayari.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.Typeface;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v4.media.MediaBrowserServiceCompat;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 
 import lalit.loveshayari.R;
+import lalit.loveshayari.activity.ActionViewActivity;
 import lalit.loveshayari.model.Result;
 import lalit.loveshayari.utilities.Contants;
+import lalit.loveshayari.utilities.FontManager;
 
 /**
  * Created by lalit on 11/8/2017.
  */
 
-public class ShayariAdapter extends BaseAdapter {
+public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHolder> {
     private List<Result> DataList;
-    private LayoutInflater mInflater;
     public Context mContext;
-    public ShayariAdapter(Context mContext,List<Result> DataList) {
-        mInflater = LayoutInflater.from(mContext);
+    Typeface materialdesignicons_font;
+
+    public ShayariAdapter(Context mContext, List<Result> DataList) {
         this.mContext = mContext;
         this.DataList = DataList;
+        this.materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(mContext, "fonts/materialdesignicons-webfont.otf");
     }
 
     @Override
-    public int getCount() {
-
-        return DataList.size();
-    }
-
-
-    @Override
-    public Object getItem(int arg0) {
-
-        return null;
+    public MyViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_shayari, parent, false);
+        return new MyViewHolder(view);
     }
 
     @Override
-    public long getItemId(int arg0) {
-
-        return 0;
-    }
-
-    @Override
-    public View getView(final int i, View convertview, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertview == null) {
-            convertview = mInflater.inflate(R.layout.item_shayari, null);
-            holder = new ViewHolder();
-            {
-                holder.data = (TextView) convertview.findViewById(R.id.data);
-                holder.sno = (TextView) convertview.findViewById(R.id.sno);
-                holder.data.setText(DataList.get(i).getTextdata());
-                holder.sno.setText(String.valueOf(i));
-                    convertview.setTag(holder);
-
+    public void onBindViewHolder(final MyViewHolder holder, final int i) {
+        holder.data.setText(DataList.get(i).getTextdata());
+        holder.sno.setText(String.valueOf(i + 1));
+        holder.favourite.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.favourite.setTextColor(Color.RED);
+                holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
             }
-        } else {
-            holder = (ViewHolder) convertview.getTag();
-        }
-        return convertview;
+        });
+        holder.linearlayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(mContext, ActionViewActivity.class);
+                intent.putExtra("textdata", DataList.get(i).getTextdata());
+                intent.putExtra("postion", i+1);
+                intent.putExtra("totalSize", DataList.size());
+                mContext.startActivity(intent);
+            }
+        });
     }
-    public static class ViewHolder {
-        TextView data,sno;
+
+//    private void moveFragment(Fragment fragment) {
+//        FragmentManager fragmentManager = ((FragmentActivity) mContext).getSupportFragmentManager();
+//        fragmentManager.beginTransaction()
+//                .replace(R.id.container, fragment)
+//                .addToBackStack(null)
+//                .commit();
+//    }
+
+
+    @Override
+    public int getItemCount() {
+        return DataList.size();
+
+    }
+
+    public class MyViewHolder extends RecyclerView.ViewHolder {
+        TextView data, sno, favourite;
+        LinearLayout linearlayout;
+
+        public MyViewHolder(View itemView) {
+            super(itemView);
+            data = (TextView) itemView.findViewById(R.id.data);
+            sno = (TextView) itemView.findViewById(R.id.sno);
+            favourite = (TextView) itemView.findViewById(R.id.favourite);
+            linearlayout = (LinearLayout) itemView.findViewById(R.id.linearlayout);
+            favourite.setTypeface(materialdesignicons_font);
+            favourite.setText(Html.fromHtml("&#xf2d5;"));
+        }
     }
 }
-
