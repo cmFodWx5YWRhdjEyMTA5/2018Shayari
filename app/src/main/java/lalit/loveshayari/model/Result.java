@@ -7,6 +7,16 @@ package lalit.loveshayari.model;
 public class Result {
     private String textdata;
 
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
+    }
+
+    private int position;
+
     public String getTextdata ()
     {
         return textdata;

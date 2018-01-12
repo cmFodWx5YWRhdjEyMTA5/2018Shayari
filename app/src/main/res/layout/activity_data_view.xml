@@ -8,6 +8,7 @@
     android:orientation="vertical"
     tools:context="lalit.loveshayari.activity.DataViewActivity">
     <LinearLayout
+        android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
@@ -17,5 +18,26 @@
             android:layout_height="wrap_content"
             android:layout_margin="5dp"
             android:scrollbars="none" />
+    </LinearLayout>
+    <LinearLayout
+        android:id="@+id/nodatalayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone">
+        <ImageView
+            android:id="@+id/nodataIcon"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="10dp"
+            android:src="@mipmap/launchicon" />
+
+        <TextView
+            android:id="@+id/nodata"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/black"
+            android:textSize="20dp" />
     </LinearLayout>
 </LinearLayout>

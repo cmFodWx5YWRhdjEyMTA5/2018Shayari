@@ -19,7 +19,7 @@ import lalit.loveshayari.utilities.Contants;
 public class DbHelper extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 3;
+    public static final int DATABASE_VERSION = 5;
     public static final String DATABASE_NAME = Contants.DATABASE_NAME;
 
     public DbHelper(Context context) {
@@ -38,6 +38,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS englishromantic");
         db.execSQL("DROP TABLE IF EXISTS englishfunny");
         db.execSQL("DROP TABLE IF EXISTS englishyaad");
+        db.execSQL("DROP TABLE IF EXISTS favouritetbl");
         onCreate(db);
 
     }
@@ -52,11 +53,13 @@ public class DbHelper extends SQLiteOpenHelper {
         String CREATE_hindiromantic_TABLE = "CREATE TABLE hindiromantic(textdata TEXT)";
         String CREATE_hindifunny_TABLE = "CREATE TABLE hindifunny(textdata TEXT)";
         String CREATE_hindiyaad_TABLE = "CREATE TABLE hindiyaad(textdata TEXT)";
+        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT)";
         db.execSQL(CREATE_hindiLove_TABLE);
         db.execSQL(CREATE_hindisad_TABLE);
         db.execSQL(CREATE_hindiromantic_TABLE);
         db.execSQL(CREATE_hindifunny_TABLE);
         db.execSQL(CREATE_hindiyaad_TABLE);
+        db.execSQL(CREATE_favouritetbl_TABLE);
 
     }
 
@@ -294,6 +297,76 @@ public class DbHelper extends SQLiteOpenHelper {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
         db.delete("hindiyaad", null, null);
+        db.close();
+        return result;
+    }
+    //...............................favourite shayaries...................
+
+    //insertFavouriteData......................................................................
+    public boolean insertFavouriteData(Result ob) {
+        ContentValues values = new ContentValues();
+
+        values.put("textdata", ob.getTextdata());
+//        values.put("position", ob.getPosition());
+
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        long i = db.insert("favouritetbl", null, values);
+        db.close();
+        return i > 0;
+    }
+
+    //getAllFavouriteData
+    public List<Result> getAllFavouriteData() {
+        String query = "Select * FROM favouritetbl ";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+
+        Cursor cursor = db.rawQuery(query, null);
+
+        List<Result> list = new ArrayList<Result>();
+
+        if (cursor.moveToFirst()) {
+            while (cursor.isAfterLast() == false) {
+                Result ob = new Result();
+                populateFavouriteData(cursor, ob);
+                list.add(ob);
+                cursor.moveToNext();
+            }
+        }
+        db.close();
+        return list;
+    }
+    public Result getallFavouriteData(String textdata) {
+
+        String query = "Select * FROM favouritetbl WHERE textdata= '" + textdata + "'";
+
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursor = db.rawQuery(query, null);
+        Result data = new Result();
+
+        if (cursor.moveToFirst()) {
+            cursor.moveToFirst();
+            populateFavouriteData(cursor, data);
+
+            cursor.close();
+        } else {
+            data = null;
+        }
+        db.close();
+        return data;
+    }
+    private void populateFavouriteData(Cursor cursor, Result ob) {
+        ob.setTextdata(cursor.getString(0));
+//        ob.setPosition(cursor.getInt(1));
+    }
+
+
+    public boolean deleteFavouriteData(String textdata) {
+        boolean result = false;
+        SQLiteDatabase db = this.getWritableDatabase();
+        String query = "textdata = '" + textdata + "' ";
+        db.delete("favouritetbl", query, null);
         db.close();
         return result;
     }

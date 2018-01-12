@@ -14,7 +14,7 @@ import lalit.loveshayari.framework.ServiceCaller;
 import lalit.loveshayari.utilities.Utility;
 
 public class CategoryHindiActivity extends AppCompatActivity implements View.OnClickListener {
-    Button love, sad, romantic, funny, yaad;
+    Button love, sad, romantic, funny, yaad,favourite;
     //String loveData, sadData, romanticData, funnyData, yaadData;
 
     @Override
@@ -30,11 +30,13 @@ public class CategoryHindiActivity extends AppCompatActivity implements View.OnC
         romantic = (Button) findViewById(R.id.romantic);
         funny = (Button) findViewById(R.id.funny);
         yaad = (Button) findViewById(R.id.yaad);
+        favourite = (Button) findViewById(R.id.favourite);
         love.setOnClickListener(this);
         sad.setOnClickListener(this);
         romantic.setOnClickListener(this);
         funny.setOnClickListener(this);
         yaad.setOnClickListener(this);
+        favourite.setOnClickListener(this);
     }
 
 
@@ -65,6 +67,12 @@ public class CategoryHindiActivity extends AppCompatActivity implements View.OnC
                 Intent intentyaad = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentyaad.putExtra("data", "yaadData");
                 startActivity(intentyaad);
+                break;
+            case R.id.favourite:
+                Intent intentfavourite = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
+                intentfavourite.putExtra("data", "favourite");
+                intentfavourite.putExtra("fav", "true");
+                startActivity(intentfavourite);
                 break;
         }
     }
