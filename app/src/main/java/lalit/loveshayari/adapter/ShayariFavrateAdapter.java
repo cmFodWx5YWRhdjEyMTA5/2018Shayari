@@ -12,6 +12,8 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
+
 import java.util.List;
 
 import lalit.loveshayari.R;
@@ -86,10 +88,12 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String listData=new Gson().toJson(DataList);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", DataList.get(i).getTextdata());
                 intent.putExtra("postion", i + 1);
                 intent.putExtra("totalSize", DataList.size());
+                intent.putExtra("list", listData);
                 mContext.startActivity(intent);
             }
         });

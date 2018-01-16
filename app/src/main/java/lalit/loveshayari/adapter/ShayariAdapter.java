@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.os.Parcelable;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -21,6 +22,8 @@ import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+
+import com.google.gson.Gson;
 
 import java.text.ParseException;
 import java.util.ArrayList;
@@ -96,10 +99,12 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                String listData=new Gson().toJson(DataList);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", DataList.get(i).getTextdata());
                 intent.putExtra("postion", i + 1);
                 intent.putExtra("totalSize", DataList.size());
+                intent.putExtra("list", listData);
                 mContext.startActivity(intent);
             }
         });

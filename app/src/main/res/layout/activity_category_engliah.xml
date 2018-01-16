@@ -4,15 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background"
+    android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context="lalit.loveshayari.activity.CategoryEngliahActivity">
 
-    <ImageView
-        android:layout_width="80dp"
-        android:layout_height="80dp"
-        android:layout_gravity="center"
-        android:src="@drawable/logo" />
+    <!--<ImageView-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:src="@mipmap/launchicon" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -20,45 +20,135 @@
         android:gravity="center"
         android:orientation="vertical">
 
-        <Button
-            android:id="@+id/love"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background"
-            android:text="Love Shayari"
-            android:textColor="@android:color/black" />
-        <Button
-            android:id="@+id/sad"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background"
-            android:text="Sad Shayari"
-            android:textColor="@android:color/black" />
-        <Button
-            android:id="@+id/romantic"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background"
-            android:text="Romantic Shayari"
-            android:textColor="@android:color/black" />
-        <Button
-            android:id="@+id/funny"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background"
-            android:text="Funny Shayari"
-            android:textColor="@android:color/black" />
-        <Button
-            android:id="@+id/yaad"
-            android:layout_width="300dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/button_background"
-            android:text="Yaad Shayari"
-            android:textColor="@android:color/black" />
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scrollbars="none">
+
+            <android.support.v7.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="20dp"
+                app:cardBackgroundColor="@android:color/transparent">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/love"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="Love Shayari"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/sad"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="Sad Shayari"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/romantic"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:textSize="12sp"
+                            android:background="@drawable/button_background"
+                            android:text="Romantic Shayari"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/funny"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:textSize="12sp"
+                            android:background="@drawable/button_background"
+                            android:text="Funny Shayari"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/yaad"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:textSize="12sp"
+                            android:background="@drawable/button_background"
+                            android:text="Yaad Shayari"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/favourite"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:textSize="12sp"
+                            android:background="@drawable/button_background"
+                            android:text="My Favourite"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="Yaad Shayari"
+                            android:textSize="12sp"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:textSize="12sp"
+                            android:background="@drawable/button_background"
+                            android:text="Yaad Shayari"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+                </LinearLayout>
+            </android.support.v7.widget.CardView>
+
+        </ScrollView>
     </LinearLayout>
 </LinearLayout>
