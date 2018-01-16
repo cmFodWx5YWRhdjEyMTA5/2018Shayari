@@ -46,32 +46,38 @@ public class CategoryHindiActivity extends AppCompatActivity implements View.OnC
             case R.id.love:
                 Intent intent = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intent.putExtra("data", "loveData");
+                intent.putExtra("key", "hindi");
                 startActivity(intent);
                 break;
             case R.id.sad:
                 Intent intentsad = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentsad.putExtra("data", "sadData");
+                intentsad.putExtra("key", "hindi");
                 startActivity(intentsad);
                 break;
             case R.id.romantic:
                 Intent intentromantic = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentromantic.putExtra("data", "romanticData");
+                intentromantic.putExtra("key", "hindi");
                 startActivity(intentromantic);
                 break;
             case R.id.funny:
                 Intent intentfunny = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentfunny.putExtra("data", "funnyData");
+                intentfunny.putExtra("key", "hindi");
                 startActivity(intentfunny);
                 break;
             case R.id.yaad:
                 Intent intentyaad = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentyaad.putExtra("data", "yaadData");
+                intentyaad.putExtra("key", "hindi");
                 startActivity(intentyaad);
                 break;
             case R.id.favourite:
                 Intent intentfavourite = new Intent(CategoryHindiActivity.this, DataViewActivity.class);
                 intentfavourite.putExtra("data", "favourite");
                 intentfavourite.putExtra("fav", "true");
+                intentfavourite.putExtra("key", "hindi");
                 startActivity(intentfavourite);
                 break;
         }

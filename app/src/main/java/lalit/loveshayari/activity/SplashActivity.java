@@ -36,6 +36,11 @@ public class SplashActivity extends AppCompatActivity {
         HindiRomantic();
         HindiFunny();
         HindiYaad();
+        EnglishLove();
+        EnglishSad();
+        EnglishRomantic();
+        EnglishFunny();
+        EnglishYaad();
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
@@ -137,6 +142,90 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
         }
+    }
+    private void EnglishLove() {
+
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishLoveshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+
+    }
+
+    private void EnglishSad() {
+
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishSadshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+
+
+    }
+
+    private void EnglishRomantic() {
+
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishRomanticshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+
+                    }
+                    //  if (ballTriangleDialog.isShowing()) {
+                    //     ballTriangleDialog.dismiss();
+                    //  }
+                }
+            });
+
+    }
+
+    private void EnglishFunny() {
+
+            // final BallTriangleDialog ballTriangleDialog = new BallTriangleDialog(this);
+            //  ballTriangleDialog.show();
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishFunnyshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+                    }
+                }
+            });
+
+    }
+
+    private void EnglishYaad() {
+
+            ServiceCaller serviceCaller = new ServiceCaller(this);
+            serviceCaller.callEnglishYaadshayari(new IAsyncWorkCompletedCallback() {
+                @Override
+                public void onDone(String workName, boolean isComplete) {
+                    if (isComplete) {
+
+                    }
+                }
+            });
     }
 
 }

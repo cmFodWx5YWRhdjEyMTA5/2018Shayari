@@ -64,14 +64,12 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
         holder.data.setText(DataList.get(i).getTextdata());
         holder.sno.setText(String.valueOf(i));
         final DbHelper dbHelper = new DbHelper(mContext);
-       final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+       final Result result1 = dbHelper.getallFavouriteData(DataList.get(holder.getAdapterPosition()).getTextdata());
        if (result1!=null) {
-           if (result1.getTextdata() != null) {
                    holder.favourite.setTextColor(Color.RED);
                    holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
 
            }
-       }
         holder.favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -93,7 +91,6 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
                     holder.favourite.setTextColor(Color.RED);
                     holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
                 }
-//                notifyDataSetChanged();
             }
         });
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {

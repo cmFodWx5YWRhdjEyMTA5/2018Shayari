@@ -377,9 +377,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishYaadData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.insertEnglishYaadData(result1);
                                 }
                             }
                             flag = true;
@@ -438,9 +439,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishSadData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.insertEnglishSadData(result1);
                                 }
                             }
                             flag = true;
@@ -499,9 +501,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishRomanticData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.insertEnglishRomanticData(result1);
                                 }
                             }
                             flag = true;
@@ -560,9 +563,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishLoveData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.insertEnglishLoveData(result1);
                                 }
                             }
                             flag = true;
@@ -621,9 +625,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishFunnyData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.insertEnglishFunnyData(result1);
                                 }
                             }
                             flag = true;
