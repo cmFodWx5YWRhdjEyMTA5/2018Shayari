@@ -64,19 +64,20 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int i) {
         holder.data.setText(DataList.get(i).getTextdata());
-        holder.sno.setText(String.valueOf(i));
+        holder.sno.setText(String.valueOf(i+1));
         final DbHelper dbHelper = new DbHelper(mContext);
-        final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata(), DataList.get(i).getPosition());
-        if (result1 != null) {
-            holder.favourite.setTextColor(Color.RED);
-            holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
+        //final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+        //Log.d(Contants.LOG_TAG,"lalit"+result1);
+        //if (result1 != null) {
+          //  holder.favourite.setTextColor(Color.RED);
+            //holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
 
-        }
+        //}
         holder.favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Result result = new Result();
-                result.setPosition(i);
+                //result.setPosition(i);
                 result.setTextdata(DataList.get(i).getTextdata());
                 final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
                 if (result1 != null) {
@@ -101,7 +102,7 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
                 String listData = new Gson().toJson(DataList);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", DataList.get(i).getTextdata());
-                intent.putExtra("postion", i + 1);
+                intent.putExtra("postion", i+1);
                 intent.putExtra("totalSize", DataList.size());
                 intent.putExtra("list", listData);
                 mContext.startActivity(intent);

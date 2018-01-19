@@ -123,6 +123,7 @@ public class DataViewActivity extends AppCompatActivity {
         }
         if (fav != null && fav.equalsIgnoreCase("true")) {
             if (favouriteList.size() != 0 && favouriteList != null && mData.equalsIgnoreCase("favourite")) {
+                Collections.reverse(favouriteList);
                 ShayariFavrateAdapter shayariAdapter = new ShayariFavrateAdapter(DataViewActivity.this, favouriteList);
                 listView.setAdapter(shayariAdapter);
             } else {

@@ -54,7 +54,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String CREATE_hindiromantic_TABLE = "CREATE TABLE hindiromantic(textdata TEXT)";
         String CREATE_hindifunny_TABLE = "CREATE TABLE hindifunny(textdata TEXT)";
         String CREATE_hindiyaad_TABLE = "CREATE TABLE hindiyaad(textdata TEXT)";
-        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT,position INTEGER)";
+        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT)";
         db.execSQL(CREATE_hindiLove_TABLE);
         db.execSQL(CREATE_hindisad_TABLE);
         db.execSQL(CREATE_hindiromantic_TABLE);
@@ -320,7 +320,7 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("textdata", ob.getTextdata());
-        values.put("position", ob.getPosition());
+        //values.put("position", ob.getPosition());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -352,7 +352,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
     public Result getallFavouriteData(String textdata, int position) {
 
-        String query = "Select * FROM favouritetbl WHERE textdata= '" + textdata + "' AND position=" + position + "";
+        String query = "Select * FROM favouritetbl WHERE textdata= '" + textdata + "' AND position =" + position + "";
 
         SQLiteDatabase db = this.getReadableDatabase();
         Cursor cursor = db.rawQuery(query, null);
@@ -392,7 +392,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private void populateFavouriteData(Cursor cursor, Result ob) {
         ob.setTextdata(cursor.getString(0));
-        ob.setPosition(cursor.getInt(1));
+        //ob.setPosition(cursor.getInt(1));
     }
 
 
