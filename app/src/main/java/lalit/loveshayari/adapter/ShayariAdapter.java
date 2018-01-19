@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
 import android.os.Parcelable;
+import android.provider.ContactsContract;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
@@ -47,6 +48,7 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
     private List<Result> DataList;
     public Context mContext;
     Typeface materialdesignicons_font;
+
     public ShayariAdapter(Context mContext, List<Result> DataList) {
         this.mContext = mContext;
         this.DataList = DataList;
@@ -64,17 +66,17 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
         holder.data.setText(DataList.get(i).getTextdata());
         holder.sno.setText(String.valueOf(i));
         final DbHelper dbHelper = new DbHelper(mContext);
-       final Result result1 = dbHelper.getallFavouriteData(DataList.get(holder.getAdapterPosition()).getTextdata());
-       if (result1!=null) {
-                   holder.favourite.setTextColor(Color.RED);
-                   holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
+        final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata(), DataList.get(i).getPosition());
+        if (result1 != null) {
+            holder.favourite.setTextColor(Color.RED);
+            holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
 
-           }
+        }
         holder.favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Result result = new Result();
-                //result.setPosition(i);
+                result.setPosition(i);
                 result.setTextdata(DataList.get(i).getTextdata());
                 final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
                 if (result1 != null) {
@@ -86,7 +88,7 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
                         holder.favourite.setTextColor(Color.RED);
                         holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
                     }
-                }else {
+                } else {
                     dbHelper.insertFavouriteData(result);
                     holder.favourite.setTextColor(Color.RED);
                     holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
@@ -96,7 +98,7 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String listData=new Gson().toJson(DataList);
+                String listData = new Gson().toJson(DataList);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", DataList.get(i).getTextdata());
                 intent.putExtra("postion", i + 1);
