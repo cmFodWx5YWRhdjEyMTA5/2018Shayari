@@ -20,6 +20,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -44,14 +46,15 @@ import lalit.loveshayari.utilities.FontManager;
  * Created by lalit on 11/8/2017.
  */
 
-public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHolder> {
-    private List<Result> DataList;
+public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHolder> implements Filterable {
+    private List<Result> DataList, filterDatalist;
     public Context mContext;
     Typeface materialdesignicons_font;
 
     public ShayariAdapter(Context mContext, List<Result> DataList) {
         this.mContext = mContext;
         this.DataList = DataList;
+        this.filterDatalist = DataList;
         this.materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(mContext, "fonts/materialdesignicons-webfont.otf");
     }
 
@@ -63,26 +66,24 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int i) {
-        holder.data.setText(DataList.get(i).getTextdata());
-        holder.sno.setText(String.valueOf(i+1));
+        holder.data.setText(filterDatalist.get(i).getTextdata());
+        holder.sno.setText(String.valueOf(i + 1));
         final DbHelper dbHelper = new DbHelper(mContext);
-        //final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
-        //Log.d(Contants.LOG_TAG,"lalit"+result1);
-        //if (result1 != null) {
-          //  holder.favourite.setTextColor(Color.RED);
-            //holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
-
-        //}
+//        final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+//        if (result1 != null) {
+//            holder.favourite.setTextColor(Color.RED);
+//            holder.favourite.setText(Html.fromHtml("&#xf2d1;"));
+//        }
         holder.favourite.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Result result = new Result();
-                //result.setPosition(i);
-                result.setTextdata(DataList.get(i).getTextdata());
-                final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+                result.setPosition(i);
+                result.setTextdata(filterDatalist.get(i).getTextdata());
+                final Result result1 = dbHelper.getallFavouriteData(filterDatalist.get(i).getTextdata());
                 if (result1 != null) {
                     if (result1.getTextdata() != null) {
-                        dbHelper.deleteFavouriteData(DataList.get(i).getTextdata());
+                        dbHelper.deleteFavouriteData(filterDatalist.get(i).getTextdata());
                         holder.favourite.setText(Html.fromHtml("&#xf2d5;"));
                     } else {
                         dbHelper.insertFavouriteData(result);
@@ -99,11 +100,11 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String listData = new Gson().toJson(DataList);
+                String listData = new Gson().toJson(filterDatalist);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
-                intent.putExtra("textdata", DataList.get(i).getTextdata());
-                intent.putExtra("postion", i+1);
-                intent.putExtra("totalSize", DataList.size());
+                intent.putExtra("textdata", filterDatalist.get(i).getTextdata());
+                intent.putExtra("postion", i + 1);
+                intent.putExtra("totalSize", filterDatalist.size());
                 intent.putExtra("list", listData);
                 mContext.startActivity(intent);
             }
@@ -121,8 +122,48 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
 
     @Override
     public int getItemCount() {
-        return DataList.size();
+        return filterDatalist.size();
 
+    }
+
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString().trim();
+                // name match condition. this might differ depending on your requirement
+                // here we are looking for name or phone number match
+                if (charString.isEmpty()) {
+                    filterDatalist = DataList;
+                } else {
+                    List<Result> filteredList = new ArrayList<>();
+                    for (Result row : DataList) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (row.getTextdata().toLowerCase().trim().contains(charString.toLowerCase())) {
+                            filteredList.add(row);
+                        }
+                    }
+
+
+                    filterDatalist = filteredList;
+                }
+
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filterDatalist;
+                return filterResults;
+            }
+
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filterDatalist = (ArrayList<Result>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
     }
 
     public class MyViewHolder extends RecyclerView.ViewHolder {

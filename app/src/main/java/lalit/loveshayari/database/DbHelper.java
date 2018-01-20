@@ -19,7 +19,7 @@ import lalit.loveshayari.utilities.Contants;
 public class DbHelper extends SQLiteOpenHelper {
 
     // If you change the database schema, you must increment the database version.
-    public static final int DATABASE_VERSION = 7;
+    public static final int DATABASE_VERSION = 9;
     public static final String DATABASE_NAME = Contants.DATABASE_NAME;
 
     public DbHelper(Context context) {
@@ -54,7 +54,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String CREATE_hindiromantic_TABLE = "CREATE TABLE hindiromantic(textdata TEXT)";
         String CREATE_hindifunny_TABLE = "CREATE TABLE hindifunny(textdata TEXT)";
         String CREATE_hindiyaad_TABLE = "CREATE TABLE hindiyaad(textdata TEXT)";
-        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT)";
+        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT,position INTEGER)";
         db.execSQL(CREATE_hindiLove_TABLE);
         db.execSQL(CREATE_hindisad_TABLE);
         db.execSQL(CREATE_hindiromantic_TABLE);
@@ -320,7 +320,7 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("textdata", ob.getTextdata());
-        //values.put("position", ob.getPosition());
+        values.put("position", ob.getPosition());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -331,7 +331,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     //getAllFavouriteData
     public List<Result> getAllFavouriteData() {
-        String query = "Select * FROM favouritetbl ";
+        String query = "Select * FROM favouritetbl";
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -350,6 +350,7 @@ public class DbHelper extends SQLiteOpenHelper {
         db.close();
         return list;
     }
+
     public Result getallFavouriteData(String textdata, int position) {
 
         String query = "Select * FROM favouritetbl WHERE textdata= '" + textdata + "' AND position =" + position + "";
@@ -392,7 +393,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private void populateFavouriteData(Cursor cursor, Result ob) {
         ob.setTextdata(cursor.getString(0));
-        //ob.setPosition(cursor.getInt(1));
+        ob.setPosition(cursor.getInt(1));
     }
 
 
@@ -514,14 +515,14 @@ public class DbHelper extends SQLiteOpenHelper {
 
         SQLiteDatabase db = this.getWritableDatabase();
 
-        long i = db.insert("hindiromantic", null, values);
+        long i = db.insert("englishromantic", null, values);
         db.close();
         return i > 0;
     }
 
     //getAllEnglishRomanticData
     public List<Result> getAllEnglishRomanticData() {
-        String query = "Select * FROM hindiromantic ";
+        String query = "Select * FROM englishromantic ";
 
         SQLiteDatabase db = this.getReadableDatabase();
 
@@ -548,7 +549,7 @@ public class DbHelper extends SQLiteOpenHelper {
     public boolean deleteEnglishRomanticData() {
         boolean result = false;
         SQLiteDatabase db = this.getWritableDatabase();
-        db.delete("hindiromantic", null, null);
+        db.delete("englishromantic", null, null);
         db.close();
         return result;
     }

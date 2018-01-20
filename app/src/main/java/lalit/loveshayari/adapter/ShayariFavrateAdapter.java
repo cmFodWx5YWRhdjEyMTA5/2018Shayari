@@ -9,11 +9,14 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Filter;
+import android.widget.Filterable;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import lalit.loveshayari.R;
@@ -27,13 +30,14 @@ import lalit.loveshayari.utilities.FontManager;
  * Created by lalit on 11/8/2017.
  */
 
-public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAdapter.MyViewHolder> {
-    private List<Result> DataList;
+public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAdapter.MyViewHolder> implements Filterable {
+    private List<Result> DataList,filterDatalist;
     public Context mContext;
     Typeface materialdesignicons_font;
     public ShayariFavrateAdapter(Context mContext, List<Result> DataList) {
         this.mContext = mContext;
         this.DataList = DataList;
+        this.filterDatalist = DataList;
         this.materialdesignicons_font = FontManager.getFontTypefaceMaterialDesignIcons(mContext, "fonts/materialdesignicons-webfont.otf");
     }
 
@@ -45,10 +49,10 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
 
     @Override
     public void onBindViewHolder(final MyViewHolder holder, final int i) {
-        holder.data.setText(DataList.get(i).getTextdata());
+        holder.data.setText(filterDatalist.get(i).getTextdata());
         holder.sno.setText(String.valueOf(i + 1));
         final DbHelper dbHelper = new DbHelper(mContext);
-       final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+       final Result result1 = dbHelper.getallFavouriteData(filterDatalist.get(i).getTextdata());
        if (result1!=null) {
            if (result1.getTextdata() != null) {
                    holder.favourite.setTextColor(Color.RED);
@@ -61,14 +65,14 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
             public void onClick(View v) {
                 Result result = new Result();
                 //result.setPosition(i);
-                result.setTextdata(DataList.get(i).getTextdata());
-                final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
+                result.setTextdata(filterDatalist.get(i).getTextdata());
+                final Result result1 = dbHelper.getallFavouriteData(filterDatalist.get(i).getTextdata());
                 if (result1 != null) {
                     if (result1.getTextdata() != null) {
-                        dbHelper.deleteFavouriteData(DataList.get(i).getTextdata());
-                        DataList.remove(i);
+                        dbHelper.deleteFavouriteData(filterDatalist.get(i).getTextdata());
+                        filterDatalist.remove(i);
                         holder.favourite.setText(Html.fromHtml("&#xf2d5;"));
-                        if (DataList.size()==0){
+                        if (filterDatalist.size()==0){
                             Intent intent = new Intent(mContext, CategoryHindiActivity.class);
                             mContext.startActivity(intent);
                         }
@@ -88,11 +92,11 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
         holder.linearlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String listData=new Gson().toJson(DataList);
+                String listData=new Gson().toJson(filterDatalist);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
-                intent.putExtra("textdata", DataList.get(i).getTextdata());
-                intent.putExtra("postion", i);
-                intent.putExtra("totalSize", DataList.size());
+                intent.putExtra("textdata", filterDatalist.get(i).getTextdata());
+                intent.putExtra("postion", i+1);
+                intent.putExtra("totalSize", filterDatalist.size());
                 intent.putExtra("list", listData);
                 mContext.startActivity(intent);
             }
@@ -110,10 +114,49 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
 
     @Override
     public int getItemCount() {
-        return DataList.size();
+        return filterDatalist.size();
 
     }
 
+    @Override
+    public Filter getFilter() {
+        return new Filter() {
+            @Override
+            protected FilterResults performFiltering(CharSequence charSequence) {
+                String charString = charSequence.toString().trim();
+                // name match condition. this might differ depending on your requirement
+                // here we are looking for name or phone number match
+                if (charString.isEmpty()) {
+                    filterDatalist = DataList;
+                } else {
+                    List<Result> filteredList = new ArrayList<>();
+                    for (Result row : DataList) {
+
+                        // name match condition. this might differ depending on your requirement
+                        // here we are looking for name or phone number match
+                        if (row.getTextdata().toLowerCase().trim().contains(charString.toLowerCase())) {
+                            filteredList.add(row);
+                        }
+                    }
+
+
+                    filterDatalist = filteredList;
+                }
+
+
+                FilterResults filterResults = new FilterResults();
+                filterResults.values = filterDatalist;
+                return filterResults;
+            }
+
+
+            @Override
+            protected void publishResults(CharSequence charSequence, FilterResults filterResults) {
+                filterDatalist = (ArrayList<Result>) filterResults.values;
+                notifyDataSetChanged();
+            }
+        };
+    }
     public class MyViewHolder extends RecyclerView.ViewHolder {
         TextView data, sno, favourite;
         LinearLayout linearlayout;

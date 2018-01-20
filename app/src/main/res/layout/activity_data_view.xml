@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_main"
     android:layout_width="match_parent"
@@ -7,11 +8,23 @@
     android:background="@drawable/bg"
     android:orientation="vertical"
     tools:context="lalit.loveshayari.activity.DataViewActivity">
+
     <LinearLayout
         android:id="@+id/linearlayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
+
+        <android.support.v7.widget.SearchView
+            android:id="@+id/search_bar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            app:queryBackground="@color/colorPrimary"
+            app:queryHint="Search here">
+
+        </android.support.v7.widget.SearchView>
+
         <android.support.v7.widget.RecyclerView
             android:id="@+id/list"
             android:layout_width="match_parent"
@@ -19,12 +32,14 @@
             android:layout_margin="5dp"
             android:scrollbars="none" />
     </LinearLayout>
+
     <LinearLayout
         android:id="@+id/nodatalayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:visibility="gone">
+
         <ImageView
             android:id="@+id/nodataIcon"
             android:layout_width="200dp"

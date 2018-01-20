@@ -1,11 +1,14 @@
 package lalit.loveshayari.activity;
 
+import android.app.SearchManager;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.SearchView;
 import android.text.Html;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -13,6 +16,7 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.AdapterView;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
@@ -37,6 +41,9 @@ public class DataViewActivity extends AppCompatActivity {
     RecyclerView listView;
     LinearLayout linearlayout, nodatalayout;
     List<Result> LoveList, sadList, romanticList, funnyList, yaadList, favouriteList, eLoveList, esadList, eromanticList, efunnyList, eyaadList, efavouriteList;
+    SearchView search_bar;
+    ShayariAdapter shayariAdapter;
+    ShayariFavrateAdapter shayariFavrateAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +54,7 @@ public class DataViewActivity extends AppCompatActivity {
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_data_view);
         listView = (RecyclerView) findViewById(R.id.list);
+        search_bar = (SearchView) findViewById(R.id.search_bar);
         linearlayout = (LinearLayout) findViewById(R.id.linearlayout);
         nodatalayout = (LinearLayout) findViewById(R.id.nodatalayout);
         LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false);
@@ -55,13 +63,45 @@ public class DataViewActivity extends AppCompatActivity {
     }
 
     private void init() {
+        SearchManager searchManager = (SearchManager) getSystemService(Context.SEARCH_SERVICE);
+        search_bar.setSearchableInfo(searchManager
+                .getSearchableInfo(this.getComponentName()));
+        search_bar.setIconified(true);
+        EditText searchEditText = (EditText) search_bar.findViewById(android.support.v7.appcompat.R.id.search_src_text);
+        searchEditText.setTextColor(Color.BLACK);
+        searchEditText.setHintTextColor(Color.BLACK);
+        search_bar.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // filter recycler view when query submitted
+                if (shayariAdapter != null) {
+                    shayariAdapter.getFilter().filter(query);
+                }
+                if (shayariFavrateAdapter != null) {
+                    shayariFavrateAdapter.getFilter().filter(query);
+                }
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String query) {
+                // filter recycler view when text is changed
+                if (shayariAdapter != null) {
+                    shayariAdapter.getFilter().filter(query);
+                }
+                if (shayariFavrateAdapter != null) {
+                    shayariFavrateAdapter.getFilter().filter(query);
+                }
+                return false;
+            }
+        });
         Intent intent = getIntent();
         String mData = intent.getStringExtra("data");
         String fav = intent.getStringExtra("fav");
         String key = intent.getStringExtra("key");
         DbHelper dbHelper = new DbHelper(DataViewActivity.this);
         favouriteList = dbHelper.getAllFavouriteData();
-        if (key!=null&&key.equalsIgnoreCase("hindi")) {
+        if (key != null && key.equalsIgnoreCase("hindi")) {
             LoveList = dbHelper.getAllhindiLoveData();
             sadList = dbHelper.getAllhindiSadData();
             romanticList = dbHelper.getAllhindiRomanticData();
@@ -69,23 +109,23 @@ public class DataViewActivity extends AppCompatActivity {
             yaadList = dbHelper.getAllhindiYaadData();
 
             if (LoveList.size() != 0 && LoveList != null && mData.equalsIgnoreCase("loveData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, LoveList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, LoveList);
                 listView.setAdapter(shayariAdapter);
             }
             if (sadList.size() != 0 && sadList != null && mData.equalsIgnoreCase("sadData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, sadList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, sadList);
                 listView.setAdapter(shayariAdapter);
             }
             if (romanticList.size() != 0 && romanticList != null && mData.equalsIgnoreCase("romanticData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, romanticList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, romanticList);
                 listView.setAdapter(shayariAdapter);
             }
             if (funnyList.size() != 0 && funnyList != null && mData.equalsIgnoreCase("funnyData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, funnyList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, funnyList);
                 listView.setAdapter(shayariAdapter);
             }
             if (yaadList.size() != 0 && yaadList != null && mData.equalsIgnoreCase("yaadData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, yaadList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, yaadList);
                 listView.setAdapter(shayariAdapter);
             }
 
@@ -99,23 +139,23 @@ public class DataViewActivity extends AppCompatActivity {
 
 
             if (eLoveList.size() != 0 && eLoveList != null && mData.equalsIgnoreCase("loveData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, eLoveList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, eLoveList);
                 listView.setAdapter(shayariAdapter);
             }
             if (esadList.size() != 0 && esadList != null && mData.equalsIgnoreCase("sadData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, esadList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, esadList);
                 listView.setAdapter(shayariAdapter);
             }
             if (eromanticList.size() != 0 && eromanticList != null && mData.equalsIgnoreCase("romanticData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, eromanticList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, eromanticList);
                 listView.setAdapter(shayariAdapter);
             }
             if (efunnyList.size() != 0 && efunnyList != null && mData.equalsIgnoreCase("funnyData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, efunnyList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, efunnyList);
                 listView.setAdapter(shayariAdapter);
             }
             if (eyaadList.size() != 0 && eyaadList != null && mData.equalsIgnoreCase("yaadData")) {
-                ShayariAdapter shayariAdapter = new ShayariAdapter(DataViewActivity.this, eyaadList);
+                shayariAdapter = new ShayariAdapter(DataViewActivity.this, eyaadList);
                 listView.setAdapter(shayariAdapter);
             }
 
@@ -124,8 +164,8 @@ public class DataViewActivity extends AppCompatActivity {
         if (fav != null && fav.equalsIgnoreCase("true")) {
             if (favouriteList.size() != 0 && favouriteList != null && mData.equalsIgnoreCase("favourite")) {
                 Collections.reverse(favouriteList);
-                ShayariFavrateAdapter shayariAdapter = new ShayariFavrateAdapter(DataViewActivity.this, favouriteList);
-                listView.setAdapter(shayariAdapter);
+                shayariFavrateAdapter = new ShayariFavrateAdapter(DataViewActivity.this, favouriteList);
+                listView.setAdapter(shayariFavrateAdapter);
             } else {
                 nodatalayout.setVisibility(View.VISIBLE);
                 linearlayout.setVisibility(View.INVISIBLE);
