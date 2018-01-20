@@ -67,7 +67,7 @@ public class SplashActivity extends AppCompatActivity {
                 }
             });
         } else {
-            Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
+            //Utility.alertForErrorMessage("Please Connect Your Internet Connection.And Try Again", this);
         }
     }
 
