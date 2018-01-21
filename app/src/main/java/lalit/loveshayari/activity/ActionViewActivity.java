@@ -30,7 +30,7 @@ import lalit.loveshayari.model.Result;
 public class ActionViewActivity extends AppCompatActivity {
     TextView tv_countSize;
     int current = 0, postion, totalSize;
-    String data, listData;
+    String  listData;
     //  int postion;
     //  ListView listView;
     ViewPager viewPager;
@@ -46,7 +46,7 @@ public class ActionViewActivity extends AppCompatActivity {
 
     private void init() {
         Intent intent = getIntent();
-        data = intent.getStringExtra("textdata");
+       // data = intent.getStringExtra("textdata");
         postion = intent.getIntExtra("postion", 0);
         totalSize = intent.getIntExtra("totalSize", 0);
         listData = intent.getStringExtra("list");
@@ -74,16 +74,18 @@ public class ActionViewActivity extends AppCompatActivity {
     }
 
     public void shareClick(View view) {
+        int i=viewPager.getCurrentItem();
         Intent paramView = new Intent();
         paramView.setAction("android.intent.action.SEND");
         paramView.setType("text/plain");
-        paramView.putExtra("android.intent.extra.TEXT", data);
+        paramView.putExtra("android.intent.extra.TEXT",results[i].getTextdata());
         startActivity(Intent.createChooser(paramView, "Share Shayari"));
     }
 
     public void copyClick(View view) {
+        int i=viewPager.getCurrentItem();
         ClipboardManager cm = (ClipboardManager) this.getSystemService(Context.CLIPBOARD_SERVICE);
-        cm.setText(data);
+        cm.setText(results[i].getTextdata());
         Toast.makeText(this, "Copied to clipboard", Toast.LENGTH_SHORT).show();
     }
     public void priviousClick(View view) {
