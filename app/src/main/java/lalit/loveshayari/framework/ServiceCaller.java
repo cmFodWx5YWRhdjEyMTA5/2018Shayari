@@ -115,6 +115,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndhindSadData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -154,6 +155,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callhindiRomanticshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.HindiRomanticShayariFetchData;
@@ -177,6 +179,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndhindRomanticData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -216,6 +219,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callhindiFunnyshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.HindiFunnyShayariFetchData;
@@ -239,6 +243,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndhindFunnyData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -278,6 +283,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callhindiYaadshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.HindiYaadShayariFetchData;
@@ -301,6 +307,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndhindYaadData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -340,6 +347,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callhindiAankheinshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.HindiAankheinShayariFetchData;
@@ -761,10 +769,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
-                            dbHelper.deletehindiLoveData();
+                            dbHelper.deletehindiBirthdayData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.inserthindiLoveData(result1);
+                                    dbHelper.inserthindiBirthdayData(result1);
                                 }
                             }
                             flag = true;
@@ -2069,28 +2077,6 @@ public class ServiceCaller {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     // english data.................................................................................................
     public void callEnglishYaadshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
@@ -2115,6 +2101,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndSaveEnglishYaadData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -2154,6 +2141,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callEnglishSadshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.EnglishSadShayariFetchData;
@@ -2177,6 +2165,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndSaveEnglishSadData
     public void parseAndSaveEnglishSadData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -2216,6 +2205,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callEnglishRomanticshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.EnglishRomanticShayariFetchData;
@@ -2239,6 +2229,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndSaveEnglishRomnticData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -2278,6 +2269,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callEnglishLoveshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.EnglishLoveShayariFetchData;
@@ -2301,6 +2293,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndSaveEnglishLoveData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -2340,6 +2333,7 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
     public void callEnglishFunnyshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.EnglishFunnyShayariFetchData;
@@ -2363,6 +2357,7 @@ public class ServiceCaller {
             }
         });
     }
+
     //parse and save parseAndhindiLoveData
     public void parseAndSaveEnglishFunnyData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
         new AsyncTask<Void, Void, Boolean>() {
@@ -2402,9 +2397,6 @@ public class ServiceCaller {
             }
         }.execute();
     }
-
-
-
 
 
     public void callEnglishAankheinshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
@@ -2828,10 +2820,10 @@ public class ServiceCaller {
                     if (data != null) {
                         if (data.getResult() != null) {
                             DbHelper dbHelper = new DbHelper(context);
-                            dbHelper.deleteEnglishLoveData();
+                            dbHelper.deleteEnglishBirthdayData();
                             for (Result result1 : data.getResult()) {
                                 if (result1 != null) {
-                                    dbHelper.insertEnglishLoveData(result1);
+                                    dbHelper.insertEnglishBirthdayData(result1);
                                 }
                             }
                             flag = true;
@@ -4134,10 +4126,6 @@ public class ServiceCaller {
             }
         }.execute();
     }
-
-
-
-
 
 
     public void callShowUsershayari(final IAsyncWorkCompletedCallback workCompletedCallback) {

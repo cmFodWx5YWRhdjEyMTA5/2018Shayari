@@ -25,6 +25,7 @@
             android:layout_height="match_parent"
             android:scrollbars="none">
 
+
             <android.support.v7.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
@@ -50,8 +51,6 @@
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
                             android:text="Love Shayari"
-                            android:textSize="12sp"
-                            android:textAllCaps="false"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -60,10 +59,8 @@
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
-                            android:textAllCaps="false"
                             android:background="@drawable/button_background"
-                            android:text="Sad Shayari"
-                            android:textSize="12sp"
+                            android:text="उदास शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -78,10 +75,8 @@
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
-                            android:textAllCaps="false"
-                            android:textSize="12sp"
                             android:background="@drawable/button_background"
-                            android:text="Romantic Shayari"
+                            android:text="रोमांस शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -90,10 +85,8 @@
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
-                            android:textSize="12sp"
-                            android:textAllCaps="false"
                             android:background="@drawable/button_background"
-                            android:text="Funny Shayari"
+                            android:text="मजेदार शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -108,10 +101,8 @@
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
-                            android:textSize="12sp"
                             android:background="@drawable/button_background"
-                            android:text="Yaad Shayari"
-                            android:textAllCaps="false"
+                            android:text="याद शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -120,40 +111,376 @@
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
-                            android:textSize="12sp"
                             android:background="@drawable/button_background"
-                            android:text="My Favourite"
-                            android:textAllCaps="false"
+                            android:text="मेरा पसंदीदा"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
-                    <!--<LinearLayout-->
-                        <!--android:layout_width="match_parent"-->
-                        <!--android:layout_height="120dp"-->
-                        <!--android:orientation="horizontal">-->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
 
-                        <!--<Button-->
-                            <!--android:layout_width="0dp"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:layout_margin="10dp"-->
-                            <!--android:layout_weight=".5"-->
-                            <!--android:background="@drawable/button_background"-->
-                            <!--android:text="Yaad Shayari"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:textColor="@android:color/black" />-->
+                        <Button
+                            android:id="@+id/englishAankhein"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishAankhein"
+                            android:textColor="@android:color/black" />
 
-                        <!--<Button-->
-                            <!--android:layout_width="0dp"-->
-                            <!--android:layout_height="match_parent"-->
-                            <!--android:layout_margin="10dp"-->
-                            <!--android:layout_weight=".5"-->
-                            <!--android:textSize="12sp"-->
-                            <!--android:background="@drawable/button_background"-->
-                            <!--android:text="Yaad Shayari"-->
-                            <!--android:textColor="@android:color/black" />-->
-                    <!--</LinearLayout>-->
+                        <Button
+                            android:id="@+id/englishAansoo"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishAansoo"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishAlone"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishAlone"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishAttitude"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishAttitude"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishBeauty"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishBeauty"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishBewafa"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishBewafa"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishBirthday"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishBirthday"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishBollywood"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishBollywood"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishBrokenHeart"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishBrokenHeart"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishDeshBhakti"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishDeshBhakti"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishDilShayari"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishDilShayari"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishDooriyan"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishDooriyan"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishDua"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishDua"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishFriendship"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishFriendship"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishHeartTouching"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishHeartTouching"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishInspirational"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishInspirational"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishInsult"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishInsult"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishIntezaar"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishIntezaar"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishJudai"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishJudai"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishMaa"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishMaa"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishMausam"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishMausam"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishMaut"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishMaut"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishNafrat"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishNafrat"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishSharab"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishSharab"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishShayariOnLife"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishShayariOnLife"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/englishSorry"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishSorry"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/englishTwoLineShayari"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="englishTwoLineShayari"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="Pending"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>
+
 
         </ScrollView>
     </LinearLayout>

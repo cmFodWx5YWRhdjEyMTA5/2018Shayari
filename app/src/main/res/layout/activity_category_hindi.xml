@@ -9,10 +9,10 @@
     tools:context="lalit.loveshayari.activity.CategoryHindiActivity">
 
     <!--<ImageView-->
-        <!--android:layout_width="80dp"-->
-        <!--android:layout_height="100dp"-->
-        <!--android:layout_gravity="center"-->
-        <!--android:src="@mipmap/launchicon" />-->
+    <!--android:layout_width="80dp"-->
+    <!--android:layout_height="100dp"-->
+    <!--android:layout_gravity="center"-->
+    <!--android:src="@mipmap/launchicon" />-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -56,8 +56,8 @@
                             android:id="@+id/sad"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
-                            android:layout_weight=".5"
                             android:layout_margin="10dp"
+                            android:layout_weight=".5"
                             android:background="@drawable/button_background"
                             android:text="उदास शायरी"
                             android:textColor="@android:color/black" />
@@ -114,294 +114,358 @@
                             android:text="मेरा पसंदीदा"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiAankhein"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiAankhein शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiAansoo"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiAansoo शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiAlone"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiAlone शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiAttitude"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiAttitude शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiBeauty"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiBeauty शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiBewafa"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiBewafa शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiBirthday"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiBirthday शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiBollywood"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiBollywood शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiBrokenHeart"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiBrokenHeart शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiDeshBhakti"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiDeshBhakti शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiDilShayari"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiDilShayari शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiDooriyan"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiDooriyan शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiDua"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiDua शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiFriendship"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiFriendship शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiHeartTouching"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiHeartTouching शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiInspirational"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiInspirational शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiInsult"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiInsult शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiIntezaar"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiIntezaar शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiJudai"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiJudai शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiMaa"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiMaa शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiMausam"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiMausam शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiMaut"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiMaut शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiNafrat"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiNafrat शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
+                            android:id="@+id/hindiSharab"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiSharab शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="120dp"
                         android:orientation="horizontal">
 
                         <Button
+                            android:id="@+id/hindiShayariOnLife"
                             android:layout_width="0dp"
                             android:layout_height="match_parent"
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="hindiShayariOnLife शायरी"
+                            android:textColor="@android:color/black" />
+
+                        <Button
+                            android:id="@+id/hindiSorry"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="hindiSorry शायरी"
+                            android:textColor="@android:color/black" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="120dp"
+                        android:orientation="horizontal">
+
+                        <Button
+                            android:id="@+id/hindiTwoLineShayari"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_margin="10dp"
+                            android:layout_weight=".5"
+                            android:background="@drawable/button_background"
+                            android:text="hindiTwoLineShayari शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -410,7 +474,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="याद शायरी"
+                            android:text="Pending"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
                 </LinearLayout>
