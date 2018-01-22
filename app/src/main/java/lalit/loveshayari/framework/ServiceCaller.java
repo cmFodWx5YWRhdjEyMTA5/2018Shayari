@@ -2402,6 +2402,1744 @@ public class ServiceCaller {
             }
         }.execute();
     }
+
+
+
+
+
+    public void callEnglishAankheinshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishAankheinShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishAankheinData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("hindiAankhein done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishAankheinData
+    public void parseAndEnglishAankheinData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishAankheinData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishAankheinData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("hindiAankhein done", true);
+                } else {
+                    workCompletedCallback.onDone("hindiAankhein done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishAansooshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishAansooShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishAansooData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("hindiAansoo done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishAansooData
+    public void parseAndEnglishAansooData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishAansooData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishAansooData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("hindiAansoo done", true);
+                } else {
+                    workCompletedCallback.onDone("hindiAansoo done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishAloneshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishAloneShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishAloneData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("hindiAlone done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishAloneData
+    public void parseAndEnglishAloneData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishAloneData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishAloneata(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("hindiAlone done", true);
+                } else {
+                    workCompletedCallback.onDone("hindiAlone done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishAttitudeshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishAttitudeShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishAttitudeData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Attitude done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishAttitudeData
+    public void parseAndEnglishAttitudeData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishAttitudeData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishAttitudeData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Attitude done", true);
+                } else {
+                    workCompletedCallback.onDone("Attitude done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishBeautyshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishBeautyShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishBeautyData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Beauty done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishBeautyData
+    public void parseAndEnglishBeautyData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishBeautyData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishBeautyData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Beauty done", true);
+                } else {
+                    workCompletedCallback.onDone("Beauty done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishBewafashayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishBewafaShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishBewafaData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Bewafa done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishBewafaData
+    public void parseAndEnglishBewafaData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishBewafaData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishBewafaData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Bewafa done", true);
+                } else {
+                    workCompletedCallback.onDone("Bewafa done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishBirthdayshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishBirthdayShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishBirthdayData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Birthday done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishBirthdayData
+    public void parseAndEnglishBirthdayData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishLoveData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishLoveData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Birthday done", true);
+                } else {
+                    workCompletedCallback.onDone("Birthday done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishBollywoodshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishBollywoodShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishBollywoodData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Bollywood done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishBollywoodData
+    public void parseAndEnglishBollywoodData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishBollywoodData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishBollywoodData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Bollywood done", true);
+                } else {
+                    workCompletedCallback.onDone("Bollywood done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishBrokenHeartshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishBrokenHeartShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishBrokenHeartData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("BrokenHeart done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishBrokenHeartData
+    public void parseAndEnglishBrokenHeartData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishBrokenHeartData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishBrokenHeartData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("BrokenHeart done", true);
+                } else {
+                    workCompletedCallback.onDone("BrokenHeart done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishDeshBhaktishayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishDeshBhaktiShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishDeshBhaktiData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("DeshBhakti done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishDeshBhaktiData
+    public void parseAndEnglishDeshBhaktiData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishDeshBhaktiData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishDeshBhaktiData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("DeshBhakti done", true);
+                } else {
+                    workCompletedCallback.onDone("DeshBhakti done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishDilshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishDilShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishDilData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Dil done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishDilData
+    public void parseAndEnglishDilData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishDilShayariData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishDilShayariData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Dil done", true);
+                } else {
+                    workCompletedCallback.onDone("Dil done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishDooriyanshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishDooriyanShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishDooriyanData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Dooriyan done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishDooriyanData
+    public void parseAndEnglishDooriyanData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishDooriyanData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishDooriyanData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Dooriyan done", true);
+                } else {
+                    workCompletedCallback.onDone("Dooriyan done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishDuashayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishDuaShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishDuaData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Dua done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishDuaData
+    public void parseAndEnglishDuaData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishDuaData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishDuaData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Dua done", true);
+                } else {
+                    workCompletedCallback.onDone("Dua done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishFriendshipshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishFriendshipShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishFriendshipData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Friendship done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishiFriendshipData
+    public void parseAndEnglishFriendshipData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishFriendshipData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishFriendshipData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Friendship done", true);
+                } else {
+                    workCompletedCallback.onDone("Friendship done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishHeartTouchingshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishHeartTouchingShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishHeartTouchingData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("HeartTouching done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishHeartTouchingData
+    public void parseAndEnglishHeartTouchingData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishHeartTouchingData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishHeartTouchingData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("HeartTouching done", true);
+                } else {
+                    workCompletedCallback.onDone("HeartTouching done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishInspirationalshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishInspirationalShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishInspirationalData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Inspirational done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishInspirationalData
+    public void parseAndEnglishInspirationalData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishInspirationalData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishInspirationalData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Inspirational done", true);
+                } else {
+                    workCompletedCallback.onDone("Inspirational done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishInsultshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishInsultShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishInsultData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Insult done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishInsultData
+    public void parseAndEnglishInsultData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishInsultData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishInsultData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Insult done", true);
+                } else {
+                    workCompletedCallback.onDone("Insult done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishIntezaarshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishIntezaarShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishIntezaarData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Intezaar done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishIntezaarData
+    public void parseAndEnglishIntezaarData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishIntezaarData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishIntezaarData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Intezaar done", true);
+                } else {
+                    workCompletedCallback.onDone("Intezaar done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishJudaishayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishJudaiShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishJudaiData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Judai done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishJudaiData
+    public void parseAndEnglishJudaiData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishJudaiData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishJudaiData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Judai done", true);
+                } else {
+                    workCompletedCallback.onDone("Judai done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishMaashayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishMaaShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishMaaData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Maa done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndhEnglishMaaData
+    public void parseAndEnglishMaaData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishMaaData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishMaaData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Maa done", true);
+                } else {
+                    workCompletedCallback.onDone("Maa done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishMausamshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishMausamShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishMausamData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Mausam done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndhEnglishMausamData
+    public void parseAndEnglishMausamData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishMausamData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishMausamData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Mausam done", true);
+                } else {
+                    workCompletedCallback.onDone("Mausam done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishMautshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishMautShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishMautData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Maut done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishMautData
+    public void parseAndEnglishMautData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishMautData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishMautData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Maut done", true);
+                } else {
+                    workCompletedCallback.onDone("Maut done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishNafratshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishNafratShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishNafratData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Nafrat done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishNafratData
+    public void parseAndEnglishNafratData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishNafratData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishNafratData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Nafrat done", true);
+                } else {
+                    workCompletedCallback.onDone("Nafrat done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishSharabshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishSharabShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishSharabData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Sharab done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishSharabData
+    public void parseAndEnglishSharabData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishSharabData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishSharabData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Sharab done", true);
+                } else {
+                    workCompletedCallback.onDone("Sharab done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishShayariOnLifeshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishShayariOnLifeFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishShayariOnLifeData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("ShayariOnLife done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishShayariOnLifeData
+    public void parseAndEnglishShayariOnLifeData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishShayariOnLifeData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishShayariOnLifeData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("ShayariOnLife done", true);
+                } else {
+                    workCompletedCallback.onDone("ShayariOnLife done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishSorryshayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishSorryShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishSorryData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("Sorry done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishSorryData
+    public void parseAndEnglishSorryData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishSorryData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishSorryData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("Sorry done", true);
+                } else {
+                    workCompletedCallback.onDone("Sorry done", false);
+                }
+            }
+        }.execute();
+    }
+
+    public void callEnglishTwoLineShayarishayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
+
+        final String url = Contants.SERVICE_BASE_URL + Contants.EnglishTwoLineShayariFetchData;
+        JSONObject obj = new JSONObject();
+        try {
+            // obj.put("PhoneNumber", phone);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        Log.d(Contants.LOG_TAG, "Payload*****" + obj);
+        new ServiceHelper().callService(url, obj, new IServiceSuccessCallback() {
+            @Override
+            public void onDone(String doneWhatCode, String result, String error) {
+                if (result != null) {
+                    //workCompletedCallback.onDone(result, true);
+                    parseAndEnglishTwoLineShayariData(result, workCompletedCallback);
+                } else {
+                    workCompletedCallback.onDone("TwoLineShayari done", false);
+                }
+            }
+        });
+    }
+
+    //parse and save parseAndEnglishTwoLineShayariData
+    public void parseAndEnglishTwoLineShayariData(final String result, final IAsyncWorkCompletedCallback workCompletedCallback) {
+        new AsyncTask<Void, Void, Boolean>() {
+
+
+            @Override
+            protected Boolean doInBackground(Void... voids) {
+                Boolean flag = false;
+                if (result != null) {
+                    ContentData data = new Gson().fromJson(result, ContentData.class);
+                    if (data != null) {
+                        if (data.getResult() != null) {
+                            DbHelper dbHelper = new DbHelper(context);
+                            dbHelper.deleteEnglishTwoLineShayariData();
+                            for (Result result1 : data.getResult()) {
+                                if (result1 != null) {
+                                    dbHelper.insertEnglishTwoLineShayariData(result1);
+                                }
+                            }
+                            flag = true;
+                        }
+                    }
+                }
+                return flag;
+
+            }
+
+
+            @Override
+            protected void onPostExecute(Boolean flag) {
+                super.onPostExecute(flag);
+                if (flag) {
+                    workCompletedCallback.onDone("TwoLineShayari done", true);
+                } else {
+                    workCompletedCallback.onDone("TwoLineShayari done", false);
+                }
+            }
+        }.execute();
+    }
+
+
+
+
+
+
     public void callShowUsershayari(final IAsyncWorkCompletedCallback workCompletedCallback) {
 
         final String url = Contants.SERVICE_BASE_URL + Contants.UserShayariFetchData;
