@@ -2094,7 +2094,7 @@ public class DbHelper extends SQLiteOpenHelper {
     }
 
     //getAEnglishAankhein
-    public List<Result> getAllEnglishankheinData() {
+    public List<Result> getAllEnglishAankheinData() {
         String query = "Select * FROM englishAankhein";
 
         SQLiteDatabase db = this.getReadableDatabase();
