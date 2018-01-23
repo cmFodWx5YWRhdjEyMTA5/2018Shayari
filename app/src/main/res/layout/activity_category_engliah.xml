@@ -262,7 +262,7 @@
                             android:textSize="12dp"
                             android:textAllCaps="false"
                             android:background="@drawable/button_background"
-                            android:text="BrokenHeart Shayari"
+                            android:text="Broken Heart Shayari"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -274,7 +274,7 @@
                             android:textAllCaps="false"
                             android:textSize="12dp"
                             android:background="@drawable/button_background"
-                            android:text="DeshBhakti Shayari"
+                            android:text="Desh Bhakti Shayari"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -352,7 +352,7 @@
                             android:textAllCaps="false"
                             android:textSize="12dp"
                             android:background="@drawable/button_background"
-                            android:text="HeartTouching"
+                            android:text="Heart Touching"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -502,7 +502,7 @@
                             android:layout_weight=".5"
                             android:textAllCaps="false"
                             android:background="@drawable/button_background"
-                            android:text="englishShayariOnLife"
+                            android:text="Shayari On Life"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -531,7 +531,7 @@
                             android:layout_weight=".5"
                             android:textAllCaps="false"
                             android:background="@drawable/button_background"
-                            android:text="TwoLineShayari"
+                            android:text="Two Line Shayari"
                             android:textSize="12dp"
                             android:textColor="@android:color/black" />
 

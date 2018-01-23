@@ -127,7 +127,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiAankhein शायरी"
+                            android:text="आंखें शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -137,7 +137,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiAansoo शायरी"
+                            android:text="आंसू शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -153,7 +153,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiAlone शायरी"
+                            android:text="अकेला शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -163,7 +163,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiAttitude शायरी"
+                            android:text="घमंडी शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -179,7 +179,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiBeauty शायरी"
+                            android:text="सुंदरता शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -189,7 +189,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiBewafa शायरी"
+                            android:text="बेवफा शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -205,7 +205,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiBirthday शायरी"
+                            android:text="जन्मदिन शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -215,7 +215,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiBollywood शायरी"
+                            android:text="बॉलीवुड शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -231,7 +231,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiBrokenHeart शायरी"
+                            android:text="टूटा हुआ दिल शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -241,7 +241,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiDeshBhakti शायरी"
+                            android:text="देश भक्ति शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -257,7 +257,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiDilShayari शायरी"
+                            android:text="दिल शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -267,7 +267,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiDooriyan शायरी"
+                            android:text="दूरियाँ शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -283,7 +283,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiDua शायरी"
+                            android:text="दुआ शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -293,7 +293,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiFriendship शायरी"
+                            android:text="मित्रता शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -309,7 +309,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiHeartTouching शायरी"
+                            android:text="हर्ट टचिंग शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -319,7 +319,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiInspirational शायरी"
+                            android:text="प्रेरणादायक शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -335,7 +335,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiInsult शायरी"
+                            android:text="अपमान शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -345,7 +345,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiIntezaar शायरी"
+                            android:text="इंतज़ार शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -361,7 +361,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiJudai शायरी"
+                            android:text="जुदाई शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -371,7 +371,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiMaa शायरी"
+                            android:text="माँ शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -387,7 +387,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiMausam शायरी"
+                            android:text="मौसम शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -397,7 +397,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiMaut शायरी"
+                            android:text="मौत शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -413,7 +413,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiNafrat शायरी"
+                            android:text="नफरत शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -423,7 +423,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiSharab शायरी"
+                            android:text="शराब शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -439,7 +439,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiShayariOnLife शायरी"
+                            android:text="ज़िन्दगी शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -449,7 +449,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiSorry शायरी"
+                            android:text="सॉरी शायरी"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
 
@@ -465,7 +465,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="hindiTwoLineShayari शायरी"
+                            android:text="दो लाइन शायरी शायरी"
                             android:textColor="@android:color/black" />
 
                         <Button
@@ -474,7 +474,7 @@
                             android:layout_margin="10dp"
                             android:layout_weight=".5"
                             android:background="@drawable/button_background"
-                            android:text="Pending"
+                            android:text="अपूर्ण"
                             android:textColor="@android:color/black" />
                     </LinearLayout>
                 </LinearLayout>
