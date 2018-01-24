@@ -68,7 +68,6 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
     public void onBindViewHolder(final MyViewHolder holder, final int i) {
         holder.data.setText(filterDatalist.get(i).getTextdata());
         holder.sno.setText(String.valueOf(i + 1));
-        final DbHelper dbHelper = new DbHelper(mContext);
 //        final Result result1 = dbHelper.getallFavouriteData(DataList.get(i).getTextdata());
 //        if (result1 != null) {
 //            holder.favourite.setTextColor(Color.RED);
@@ -78,7 +77,8 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
             @Override
             public void onClick(View v) {
                 Result result = new Result();
-                result.setPosition(i);
+                //result.setPosition(i);
+                final DbHelper dbHelper = new DbHelper(mContext);
                 result.setTextdata(filterDatalist.get(i).getTextdata());
                 final Result result1 = dbHelper.getallFavouriteData(filterDatalist.get(i).getTextdata());
                 if (result1 != null) {
@@ -103,7 +103,7 @@ public class ShayariAdapter extends RecyclerView.Adapter<ShayariAdapter.MyViewHo
                 String listData = new Gson().toJson(filterDatalist);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", filterDatalist.get(i).getTextdata());
-                intent.putExtra("postion", i + 1);
+                intent.putExtra("postion", i);
                 intent.putExtra("totalSize", filterDatalist.size());
                 intent.putExtra("list", listData);
                 mContext.startActivity(intent);

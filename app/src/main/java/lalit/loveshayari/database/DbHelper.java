@@ -136,7 +136,7 @@ public class DbHelper extends SQLiteOpenHelper {
         String CREATE_hindiTwoLineShayari_TABLE = "CREATE TABLE hindiTwoLineShayari(textdata TEXT)";
 
 
-        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT,position INTEGER)";
+        String CREATE_favouritetbl_TABLE = "CREATE TABLE favouritetbl(textdata TEXT)";
         db.execSQL(CREATE_favouritetbl_TABLE);
         db.execSQL(CREATE_hindiLove_TABLE);
         db.execSQL(CREATE_hindisad_TABLE);
@@ -1751,7 +1751,7 @@ public class DbHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
 
         values.put("textdata", ob.getTextdata());
-        values.put("position", ob.getPosition());
+        //values.put("position", ob.getPosition());
 
         SQLiteDatabase db = this.getWritableDatabase();
 
@@ -1824,7 +1824,7 @@ public class DbHelper extends SQLiteOpenHelper {
 
     private void populateFavouriteData(Cursor cursor, Result ob) {
         ob.setTextdata(cursor.getString(0));
-        ob.setPosition(cursor.getInt(1));
+        //ob.setPosition(cursor.getInt(1));
     }
 
 

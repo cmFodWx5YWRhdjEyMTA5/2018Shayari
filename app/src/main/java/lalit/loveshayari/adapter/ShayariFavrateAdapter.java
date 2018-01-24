@@ -95,7 +95,7 @@ public class ShayariFavrateAdapter extends RecyclerView.Adapter<ShayariFavrateAd
                 String listData=new Gson().toJson(filterDatalist);
                 Intent intent = new Intent(mContext, ActionViewActivity.class);
                 intent.putExtra("textdata", filterDatalist.get(i).getTextdata());
-                intent.putExtra("postion", i+1);
+                intent.putExtra("postion", i);
                 intent.putExtra("totalSize", filterDatalist.size());
                 intent.putExtra("list", listData);
                 mContext.startActivity(intent);

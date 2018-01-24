@@ -52,7 +52,7 @@ public class ActionViewActivity extends AppCompatActivity {
         listData = intent.getStringExtra("list");
         viewPager = (ViewPager) findViewById(R.id.textdata);
         tv_countSize = (TextView) findViewById(R.id.tv_countSize);
-        tv_countSize.setText(String.valueOf(postion) + "/" + String.valueOf(totalSize));
+        tv_countSize.setText(String.valueOf(postion+1) + "/" + String.valueOf(totalSize));
         results = new Gson().fromJson(listData, Result[].class);
         pagerAdapter = new MyPagerAdapter();
         viewPager.setAdapter(pagerAdapter);
@@ -60,7 +60,7 @@ public class ActionViewActivity extends AppCompatActivity {
         viewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                tv_countSize.setText(String.valueOf(position) + "/" + String.valueOf(totalSize));
+                tv_countSize.setText(String.valueOf(position+1) + "/" + String.valueOf(totalSize));
             }
 
             @Override
