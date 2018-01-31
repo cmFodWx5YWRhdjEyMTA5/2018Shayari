@@ -101,18 +101,17 @@ public class LanguageActivity extends AppCompatActivity {
         //alert for error message
 
         final AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        Typeface robotoRegular = Typeface.createFromAsset(context.getAssets(), "fonts/roboto.regular.ttf");
-        Typeface robotoMedium = Typeface.createFromAsset(context.getAssets(), "fonts/roboto.medium.ttf");
+        Typeface robotoRegular = Typeface.createFromAsset(context.getAssets(), "fonts/ProximaNova-Regular.otf");
         final AlertDialog alert = builder.create();
         View view = alert.getLayoutInflater().inflate(R.layout.custom_update_alert, null);
         TextView title = (TextView) view.findViewById(R.id.textMessage);
         TextView title2 = (TextView) view.findViewById(R.id.textMessage2);
-        title.setTypeface(robotoMedium);
+        title.setTypeface(robotoRegular);
         title2.setTypeface(robotoRegular);
         Button ok = (Button) view.findViewById(R.id.buttonUpdate);
         Button buttonCancel = (Button) view.findViewById(R.id.buttonCancel);
-        ok.setTypeface(robotoMedium);
-        buttonCancel.setTypeface(robotoMedium);
+        ok.setTypeface(robotoRegular);
+        buttonCancel.setTypeface(robotoRegular);
         alert.setCustomTitle(view);
 
         ok.setOnClickListener(new View.OnClickListener() {
